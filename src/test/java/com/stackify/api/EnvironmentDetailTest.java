@@ -18,8 +18,6 @@ package com.stackify.api;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.stackify.api.EnvironmentDetail;
-
 /**
  * EnvironmentDetail JUnit Test
  * 
@@ -36,7 +34,6 @@ public class EnvironmentDetailTest {
 		String appName = "app";
 		String appLocation = "location";
 		String configuredAppName = "configuredAppName";
-		String configuredLocationName = "configuredLocationName";
 		String configuredEnvironmentName = "configuredEnvironmentName";
 		
 		EnvironmentDetail.Builder builder = EnvironmentDetail.newBuilder();
@@ -44,7 +41,6 @@ public class EnvironmentDetailTest {
 		builder.appName(appName);
 		builder.appLocation(appLocation);
 		builder.configuredAppName(configuredAppName);
-		builder.configuredLocationName(configuredLocationName);
 		builder.configuredEnvironmentName(configuredEnvironmentName);
 		EnvironmentDetail environment = builder.build();
 		
@@ -54,7 +50,6 @@ public class EnvironmentDetailTest {
 		Assert.assertEquals(appName, environment.getAppName());
 		Assert.assertEquals(appLocation, environment.getAppLocation());		
 		Assert.assertEquals(configuredAppName, environment.getConfiguredAppName());		
-		Assert.assertEquals(configuredLocationName, environment.getConfiguredLocationName());		
 		Assert.assertEquals(configuredEnvironmentName, environment.getConfiguredEnvironmentName());		
 	}
 }

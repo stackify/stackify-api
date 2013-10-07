@@ -55,11 +55,6 @@ public class EnvironmentDetail {
 	private final String configuredAppName;
 	
 	/**
-	 * Custom application location
-	 */
-	private final String configuredLocationName;
-
-	/**
 	 * Custom application environment
 	 */
 	private final String configuredEnvironmentName;
@@ -93,13 +88,6 @@ public class EnvironmentDetail {
 	}
 
 	/**
-	 * @return the configuredLocationName
-	 */
-	public String getConfiguredLocationName() {
-		return configuredLocationName;
-	}
-
-	/**
 	 * @return the configuredEnvironmentName
 	 */
 	public String getConfiguredEnvironmentName() {
@@ -114,7 +102,6 @@ public class EnvironmentDetail {
 		this.appName = builder.appName;
 		this.appLocation = builder.appLocation;
 		this.configuredAppName = builder.configuredAppName;
-		this.configuredLocationName = builder.configuredLocationName;
 		this.configuredEnvironmentName = builder.configuredEnvironmentName;
 	}
 
@@ -149,12 +136,7 @@ public class EnvironmentDetail {
 		 * The builder's configuredAppName
 		 */
 		private String configuredAppName;
-		
-		/**
-		 * The builder's configuredLocationName
-		 */
-		private String configuredLocationName;
-		
+				
 		/**
 		 * The builder's configuredEnvironmentName
 		 */
@@ -199,17 +181,7 @@ public class EnvironmentDetail {
 			this.configuredAppName = configuredAppName;
 			return this;
 		}
-		
-		/**
-		 * Sets the builder's configuredLocationName
-		 * @param configuredLocationName The configuredLocationName to be set
-		 * @return Reference to the current object
-		 */
-		public Builder configuredLocationName(final String configuredLocationName) {
-			this.configuredLocationName = configuredLocationName;
-			return this;
-		}
-		
+				
 		/**
 		 * Sets the builder's configuredEnvironmentName
 		 * @param configuredEnvironmentName The configuredEnvironmentName to be set

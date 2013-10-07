@@ -42,7 +42,6 @@ public class EnvironmentDetailMixInTest {
 		builder.appName("app");
 		builder.appLocation("location");
 		builder.configuredAppName("customApp");
-		builder.configuredLocationName("customLocation");
 		builder.configuredEnvironmentName("customEnv");
 		EnvironmentDetail environment = builder.build();
 
@@ -52,6 +51,6 @@ public class EnvironmentDetailMixInTest {
 		
 		String json = mapper.writer().writeValueAsString(environment);
 		
-		Assert.assertEquals("{\"DeviceName\":\"device\",\"AppName\":\"app\",\"AppLocation\":\"location\",\"ConfiguredAppName\":\"customApp\",\"ConfiguredLocationName\":\"customLocation\",\"ConfiguredEnvironmentName\":\"customEnv\"}", json);
+		Assert.assertEquals("{\"DeviceName\":\"device\",\"AppName\":\"app\",\"AppLocation\":\"location\",\"ConfiguredAppName\":\"customApp\",\"ConfiguredEnvironmentName\":\"customEnv\"}", json);
 	}
 }

@@ -36,9 +36,6 @@ public interface EnvironmentDetailMixIn {
 	@JsonProperty("ConfiguredAppName")
 	String getConfiguredAppName();
 	
-	@JsonProperty("ConfiguredLocationName")
-	String getConfiguredLocationName();
-	
 	@JsonProperty("ConfiguredEnvironmentName")
 	String getConfiguredEnvironmentName();
 }
