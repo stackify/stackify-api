@@ -16,8 +16,12 @@
 package com.stackify.api;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * Encapsulates all details about an error that will be sent to Stackify
@@ -27,7 +31,6 @@ import java.util.Map;
  * <pre>
  * {@code
  * StackifyError.Builder builder = StackifyError.newBuilder();
- * builder.apiClient(apiClient);
  * builder.environmentDetail(environment);
  * ...
  * StackifyError stackifyError = builder.build();
@@ -36,64 +39,51 @@ import java.util.Map;
  *
  * @author Eric Martin
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonDeserialize(builder = StackifyError.Builder.class)
 public class StackifyError {
-
-	/**
-	 * API Client
-	 */
-	private final ApiClient apiClient;
 	
 	/**
 	 * Environment
 	 */
+	@JsonProperty("EnvironmentDetail")
 	private final EnvironmentDetail environmentDetail;
 
 	/**
 	 * Date/time of the error
 	 */
+	@JsonProperty("OccurredEpochMillis")
 	private final Date occurredEpochMillis;
 	
 	/**
 	 * Error details
 	 */
+	@JsonProperty("Error")
 	private final ErrorItem error;
 
 	/**
 	 * Details of the web request
 	 */
+	@JsonProperty("WebRequestDetail")
 	private final WebRequestDetail webRequestDetail;
-	
-	/**
-	 * Tags
-	 */
-	private final List<String> tags;
-	
+		
 	/**
 	 * Server variables
 	 */
+	@JsonProperty("ServerVariables")
 	private final Map<String, String> serverVariables;
-	
-	/**
-	 * Custom properties
-	 */
-	private final Map<String, String> customProperties;
-	
+		
 	/**
 	 * Customer name
 	 */
+	@JsonProperty("CustomerName")
 	private final String customerName;
 	
 	/**
 	 * User name
 	 */
+	@JsonProperty("UserName")
 	private final String userName;
-
-	/**
-	 * @return the apiClient
-	 */
-	public ApiClient getApiClient() {
-		return apiClient;
-	}
 
 	/**
 	 * @return the environmentDetail
@@ -124,24 +114,10 @@ public class StackifyError {
 	}
 
 	/**
-	 * @return the tags
-	 */
-	public List<String> getTags() {
-		return tags;
-	}
-
-	/**
 	 * @return the serverVariables
 	 */
 	public Map<String, String> getServerVariables() {
 		return serverVariables;
-	}
-
-	/**
-	 * @return the customProperties
-	 */
-	public Map<String, String> getCustomProperties() {
-		return customProperties;
 	}
 
 	/**
@@ -162,14 +138,11 @@ public class StackifyError {
 	 * @param builder The Builder object that contains all of the values for initialization
 	 */
 	private StackifyError(final Builder builder) {
-		this.apiClient = builder.apiClient;
 		this.environmentDetail = builder.environmentDetail;
 		this.occurredEpochMillis = builder.occurredEpochMillis;
 		this.error = builder.error;
 		this.webRequestDetail = builder.webRequestDetail;
-		this.tags = builder.tags;
 		this.serverVariables = builder.serverVariables;
-		this.customProperties = builder.customProperties;
 		this.customerName = builder.customerName;
 		this.userName = builder.userName;
 	}
@@ -184,68 +157,51 @@ public class StackifyError {
 	/**
 	 * StackifyError.Builder separates the construction of a StackifyError from its representation
 	 */
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	public static class Builder {
-
-		/**
-		 * The builder's apiClient
-		 */
-		private ApiClient apiClient;
 		
 		/**
 		 * The builder's environmentDetail
 		 */
+		@JsonProperty("EnvironmentDetail")
 		private EnvironmentDetail environmentDetail;
 		
 		/**
 		 * The builder's occurredEpochMillis
 		 */
+		@JsonProperty("OccurredEpochMillis")
 		private Date occurredEpochMillis;
 		
 		/**
 		 * The builder's error
 		 */
+		@JsonProperty("Error")
 		private ErrorItem error;
 		
 		/**
 		 * The builder's webRequestDetail
 		 */
+		@JsonProperty("WebRequestDetail")
 		private WebRequestDetail webRequestDetail;
-		
-		/**
-		 * The builder's tags
-		 */
-		private List<String> tags;
-		
+				
 		/**
 		 * The builder's serverVariables
 		 */
+		@JsonProperty("ServerVariables")
 		private Map<String,String> serverVariables;
-		
-		/**
-		 * The builder's customProperties
-		 */
-		private Map<String,String> customProperties;
-		
+				
 		/**
 		 * The builder's customerName
 		 */
+		@JsonProperty("CustomerName")
 		private String customerName;
 		
 		/**
 		 * The builder's userName
 		 */
+		@JsonProperty("UserName")
 		private String userName;
-		
-		/**
-		 * Sets the builder's apiClient
-		 * @param apiClient The apiClient to be set
-		 * @return Reference to the current object
-		 */
-		public Builder apiClient(final ApiClient apiClient) {
-			this.apiClient = apiClient;
-			return this;
-		}
-		
+				
 		/**
 		 * Sets the builder's environmentDetail
 		 * @param environmentDetail The environmentDetail to be set
@@ -285,17 +241,7 @@ public class StackifyError {
 			this.webRequestDetail = webRequestDetail;
 			return this;
 		}
-		
-		/**
-		 * Sets the builder's tags
-		 * @param tags The tags to be set
-		 * @return Reference to the current object
-		 */
-		public Builder tags(final List<String> tags) {
-			this.tags = tags;
-			return this;
-		}
-		
+				
 		/**
 		 * Sets the builder's serverVariables
 		 * @param serverVariables The serverVariables to be set
@@ -305,17 +251,7 @@ public class StackifyError {
 			this.serverVariables = serverVariables;
 			return this;
 		}
-		
-		/**
-		 * Sets the builder's customProperties
-		 * @param customProperties The customProperties to be set
-		 * @return Reference to the current object
-		 */
-		public Builder customProperties(final Map<String,String> customProperties) {
-			this.customProperties = customProperties;
-			return this;
-		}
-		
+				
 		/**
 		 * Sets the builder's customerName
 		 * @param customerName The customerName to be set

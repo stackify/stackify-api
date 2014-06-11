@@ -18,6 +18,11 @@ package com.stackify.api;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 /**
  * Contains the details of a single exception including the stack trace and any causes
  * 
@@ -35,41 +40,50 @@ import java.util.Map;
  *
  * @author Eric Martin
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonDeserialize(builder = ErrorItem.Builder.class)
 public class ErrorItem {
 
 	/**
 	 * The error message
 	 */
+	@JsonProperty("Message")
 	private final String message;
 	
 	/**
 	 * The error's class name
 	 */
+	@JsonProperty("ErrorType")
 	private final String errorType;
 	
 	/**
 	 * The error type code
 	 */
+	@JsonProperty("ErrorTypeCode")
 	private final String errorTypeCode;
 	
 	/**
 	 * Custom data for the error
 	 */
+	@JsonProperty("Data")
 	private final Map<String, String> data;
 	
 	/**
 	 * The method name
 	 */
+	@JsonProperty("SourceMethod")
 	private final String sourceMethod;
 
 	/**
 	 * The stack trace
 	 */
+	@JsonProperty("StackTrace")
 	private final List<TraceFrame> stackTrace;
 
 	/**
 	 * The cause of this error
 	 */
+	@JsonProperty("InnerError")
 	private final ErrorItem innerError;
 
 	/**
@@ -144,41 +158,49 @@ public class ErrorItem {
 	/**
 	 * ErrorItem.Builder separates the construction of a ErrorItem from its representation
 	 */
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	public static class Builder {
 
 		/**
 		 * The builder's message
 		 */
+		@JsonProperty("Message")
 		private String message;
 		
 		/**
 		 * The builder's errorType
 		 */
+		@JsonProperty("ErrorType")
 		private String errorType;
 		
 		/**
 		 * The builder's errorTypeCode
 		 */
+		@JsonProperty("ErrorTypeCode")
 		private String errorTypeCode;
 		
 		/**
 		 * The builder's data
 		 */
+		@JsonProperty("Data")
 		private Map<String,String> data;
 		
 		/**
 		 * The builder's sourceMethod
 		 */
+		@JsonProperty("SourceMethod")
 		private String sourceMethod;
 		
 		/**
 		 * The builder's stackTrace
 		 */
+		@JsonProperty("StackTrace")
 		private List<TraceFrame> stackTrace;
 		
 		/**
 		 * The builder's innerError
 		 */
+		@JsonProperty("InnerError")
 		private ErrorItem innerError;
 		
 		/**

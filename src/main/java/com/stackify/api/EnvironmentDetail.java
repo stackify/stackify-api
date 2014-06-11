@@ -15,6 +15,11 @@
  */
 package com.stackify.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 /**
  * Contains details of the current application environment such as device name, application name, application 
  * location and environment.
@@ -32,31 +37,38 @@ package com.stackify.api;
  *
  * @author Eric Martin
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonDeserialize(builder = EnvironmentDetail.Builder.class)
 public class EnvironmentDetail {
 	
 	/**
 	 * Device name
 	 */
+	@JsonProperty("DeviceName")
 	private final String deviceName;
 	
 	/**
 	 * Application name
 	 */
+	@JsonProperty("AppName")
 	private final String appName;
 	
 	/**
 	 * Application location
 	 */
+	@JsonProperty("AppLocation")
 	private final String appLocation;
 
 	/**
 	 * Custom application name
 	 */
+	@JsonProperty("ConfiguredAppName")
 	private final String configuredAppName;
 	
 	/**
 	 * Custom application environment
 	 */
+	@JsonProperty("ConfiguredEnvironmentName")
 	private final String configuredEnvironmentName;
 
 	/**
@@ -115,31 +127,37 @@ public class EnvironmentDetail {
 	/**
 	 * EnvironmentDetail.Builder separates the construction of a EnvironmentDetail from its representation
 	 */
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	public static class Builder {
 
 		/**
 		 * The builder's deviceName
 		 */
+		@JsonProperty("DeviceName")
 		private String deviceName;
 		
 		/**
 		 * The builder's appName
 		 */
+		@JsonProperty("AppName")
 		private String appName;
 		
 		/**
 		 * The builder's appLocation
 		 */
+		@JsonProperty("AppLocation")
 		private String appLocation;
 		
 		/**
 		 * The builder's configuredAppName
 		 */
+		@JsonProperty("ConfiguredAppName")
 		private String configuredAppName;
 				
 		/**
 		 * The builder's configuredEnvironmentName
 		 */
+		@JsonProperty("ConfiguredEnvironmentName")
 		private String configuredEnvironmentName;
 		
 		/**

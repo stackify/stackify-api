@@ -18,8 +18,6 @@ package com.stackify.api;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.stackify.api.TraceFrame;
-
 /**
  * TraceFrame JUnit Test
  * 
@@ -35,13 +33,11 @@ public class TraceFrameTest {
 		String fileName = "fileName";
 		Integer lineNumber = Integer.valueOf(14);
 		String methodName = "methodName";
-		String libraryName = "libraryName";		
 
 		TraceFrame.Builder builder = TraceFrame.newBuilder();
 		builder.codeFileName(fileName);
 		builder.lineNum(lineNumber);
 		builder.method(methodName);
-		builder.libraryName(libraryName);
 		TraceFrame stackFrame = builder.build();
 		
 		Assert.assertNotNull(stackFrame);
@@ -49,6 +45,5 @@ public class TraceFrameTest {
 		Assert.assertEquals(fileName, stackFrame.getCodeFileName());
 		Assert.assertEquals(lineNumber, stackFrame.getLineNum());
 		Assert.assertEquals(methodName, stackFrame.getMethod());		
-		Assert.assertEquals(libraryName, stackFrame.getLibraryName());
 	}
 }

@@ -15,6 +15,11 @@
  */
 package com.stackify.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 /**
  * Each TraceFrame object represents a single stack frame in a stack trace
  * 
@@ -31,27 +36,27 @@ package com.stackify.api;
  *
  * @author Eric Martin
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonDeserialize(builder = TraceFrame.Builder.class)
 public class TraceFrame {
 
 	/**
 	 * The file name
 	 */
+	@JsonProperty("CodeFileName")
 	private final String codeFileName;
 	
 	/**
 	 * The line number
 	 */
+	@JsonProperty("LineNum")
 	private final Integer lineNum;
 	
 	/**
 	 * The method name
 	 */
+	@JsonProperty("Method")
 	private final String method;
-
-	/**
-	 * The library name
-	 */
-	private final String libraryName;
 
 	/**
 	 * @return the codeFileName
@@ -75,20 +80,12 @@ public class TraceFrame {
 	}
 
 	/**
-	 * @return the libraryName
-	 */
-	public String getLibraryName() {
-		return libraryName;
-	}
-
-	/**
 	 * @param builder The Builder object that contains all of the values for initialization
 	 */
 	private TraceFrame(final Builder builder) {
 		this.codeFileName = builder.codeFileName;
 		this.lineNum = builder.lineNum;
 		this.method = builder.method;
-		this.libraryName = builder.libraryName;
 	}
 
 	/**
@@ -101,28 +98,27 @@ public class TraceFrame {
 	/**
 	 * TraceFrame.Builder separates the construction of a TraceFrame from its representation
 	 */
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	public static class Builder {
 
 		/**
 		 * The builder's codeFileName
 		 */
+		@JsonProperty("CodeFileName")
 		private String codeFileName;
 		
 		/**
 		 * The builder's lineNum
 		 */
+		@JsonProperty("LineNum")
 		private Integer lineNum;
 		
 		/**
 		 * The builder's method
 		 */
+		@JsonProperty("Method")
 		private String method;
-		
-		/**
-		 * The builder's libraryName
-		 */
-		private String libraryName;
-		
+				
 		/**
 		 * Sets the builder's codeFileName
 		 * @param codeFileName The codeFileName to be set
@@ -152,17 +148,7 @@ public class TraceFrame {
 			this.method = method;
 			return this;
 		}
-		
-		/**
-		 * Sets the builder's libraryName
-		 * @param libraryName The libraryName to be set
-		 * @return Reference to the current object
-		 */
-		public Builder libraryName(final String libraryName) {
-			this.libraryName = libraryName;
-			return this;
-		}
-		
+				
 		/**
 		 * @return A new object constructed from this builder
 		 */

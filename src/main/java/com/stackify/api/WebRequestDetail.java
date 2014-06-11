@@ -17,6 +17,11 @@ package com.stackify.api;
 
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 /**
  * Contains details about the web request associated to the error
  * 
@@ -35,81 +40,98 @@ import java.util.Map;
  *
  * @author Eric Martin
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonDeserialize(builder = WebRequestDetail.Builder.class)
 public class WebRequestDetail {
 
 	/**
 	 * User IP address
 	 */
+	@JsonProperty("UserIPAddress")
 	private final String userIpAddress;
 	
 	/**
 	 * HTTP method
 	 */
+	@JsonProperty("HttpMethod")
 	private final String httpMethod;
 	
 	/**
 	 * Request protocol
 	 */
+	@JsonProperty("RequestProtocol")
 	private final String requestProtocol;
 	
 	/**
 	 * Request URL
 	 */
+	@JsonProperty("RequestUrl")
 	private final String requestUrl;
 	
 	/**
 	 * Request URL root
 	 */
+	@JsonProperty("RequestUrlRoot")
 	private final String requestUrlRoot;
 	
 	/**
 	 * Referral URL
 	 */
+	@JsonProperty("ReferralUrl")
 	private final String referralUrl;
 	
 	/**
 	 * Headers
 	 */
+	@JsonProperty("Headers")
 	private final Map<String, String> headers;
 	
 	/**
 	 * Cookies
 	 */
+	@JsonProperty("Cookies")
 	private final Map<String, String> cookies;
 	
 	/**
 	 * Query string parameters
 	 */
+	@JsonProperty("QueryString")
 	private final Map<String, String> queryString;
 	
 	/**
 	 * Form post data
 	 */
+	@JsonProperty("PostData")
 	private final Map<String, String> postData;
 	
 	/**
 	 * Session data
 	 */
+	@JsonProperty("SessionData")
 	private final Map<String, String> sessionData;
 
 	/**
 	 * Raw post data
 	 */
+	@JsonProperty("PostDataRaw")
 	private final String postDataRaw;
 
 	/**
 	 * MVC action
 	 */
+	@JsonProperty("MVCAction")
 	private final String mvcAction;
 	
 	/**
 	 * MVC controller
 	 */
+	@JsonProperty("MVCController")
 	private final String mvcController;
 	
 	/**
 	 * MVC area
 	 */
+	@JsonProperty("MVCArea")
 	private final String mvcArea;
 
 	/**
@@ -248,81 +270,97 @@ public class WebRequestDetail {
 	/**
 	 * WebRequestDetail.Builder separates the construction of a WebRequestDetail from its representation
 	 */
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	public static class Builder {
 
 		/**
 		 * The builder's userIpAddress
 		 */
+		@JsonProperty("UserIPAddress")
 		private String userIpAddress;
 		
 		/**
 		 * The builder's httpMethod
 		 */
+		@JsonProperty("HttpMethod")
 		private String httpMethod;
 		
 		/**
 		 * The builder's requestProtocol
 		 */
+		@JsonProperty("RequestProtocol")
 		private String requestProtocol;
 		
 		/**
 		 * The builder's requestUrl
 		 */
+		@JsonProperty("RequestUrl")
 		private String requestUrl;
 		
 		/**
 		 * The builder's requestUrlRoot
 		 */
+		@JsonProperty("RequestUrlRoot")
 		private String requestUrlRoot;
 		
 		/**
 		 * The builder's referralUrl
 		 */
+		@JsonProperty("ReferralUrl")
 		private String referralUrl;
 		
 		/**
 		 * The builder's headers
 		 */
+		@JsonProperty("Headers")
 		private Map<String,String> headers;
 		
 		/**
 		 * The builder's cookies
 		 */
+		@JsonProperty("Cookies")
 		private Map<String,String> cookies;
 		
 		/**
 		 * The builder's queryString
 		 */
+		@JsonProperty("QueryString")
 		private Map<String,String> queryString;
 		
 		/**
 		 * The builder's postData
 		 */
+		@JsonProperty("PostData")
 		private Map<String,String> postData;
 		
 		/**
 		 * The builder's sessionData
 		 */
+		@JsonProperty("SessionData")
 		private Map<String,String> sessionData;
 		
 		/**
 		 * The builder's postDataRaw
 		 */
+		@JsonProperty("PostDataRaw")
 		private String postDataRaw;
 		
 		/**
 		 * The builder's mvcAction
 		 */
+		@JsonProperty("MVCAction")
 		private String mvcAction;
 		
 		/**
 		 * The builder's mvcController
 		 */
+		@JsonProperty("MVCController")
 		private String mvcController;
 		
 		/**
 		 * The builder's mvcArea
 		 */
+		@JsonProperty("MVCArea")
 		private String mvcArea;
 		
 		/**
