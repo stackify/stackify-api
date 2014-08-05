@@ -1,6 +1,7 @@
 # stackify-api
 
 [![Build Status](https://travis-ci.org/stackify/stackify-api.png)](https://travis-ci.org/stackify/stackify-api)
+[![Coverage Status](https://coveralls.io/repos/stackify/stackify-api/badge.png?branch=master)](https://coveralls.io/r/stackify/stackify-api?branch=master)
 
 Stackify API
 
