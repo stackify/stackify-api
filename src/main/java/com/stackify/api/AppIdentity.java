@@ -53,6 +53,12 @@ public class AppIdentity {
 	private final Integer envId;
 	
 	/**
+	 * Environment
+	 */
+	@JsonProperty("Env")
+	private final String env;
+	
+	/**
 	 * Application name
 	 */
 	@JsonProperty("AppName")
@@ -99,6 +105,13 @@ public class AppIdentity {
 	}
 
 	/**
+	 * @return the env
+	 */
+	public String getEnv() {
+		return env;
+	}
+
+	/**
 	 * @return the appName
 	 */
 	public String getAppName() {
@@ -127,6 +140,7 @@ public class AppIdentity {
 	    this.deviceAppId = builder.deviceAppId;
 	    this.appNameId = builder.appNameId;
 	    this.envId = builder.envId;
+	    this.env = builder.env;
 	    this.appName = builder.appName;
 	    this.appEnvId = builder.appEnvId;
 	    this.deviceAlias = builder.deviceAlias;
@@ -168,6 +182,12 @@ public class AppIdentity {
 		 */
 		@JsonProperty("EnvID")
 		private Integer envId;
+		
+		/**
+		 * The builder's env
+		 */
+		@JsonProperty("Env")
+		private String env;
 		
 		/**
 		 * The builder's appName
@@ -228,6 +248,16 @@ public class AppIdentity {
 		}
 		
 		/**
+		 * Sets the builder's env
+		 * @param envId The env to be set
+		 * @return Reference to the current object
+		 */
+		public Builder env(final String env) {
+		    this.env = env;
+		    return this;
+		}
+		
+		/**
 		 * Sets the builder's appName
 		 * @param appName The appName to be set
 		 * @return Reference to the current object
@@ -272,7 +302,7 @@ public class AppIdentity {
 	public String toString() {
 		return "AppIdentity{deviceId=" + deviceId + ", deviceAppId="
 				+ deviceAppId + ", appNameId=" + appNameId + ", envId=" + envId
-				+ ", appName=" + appName + ", appEnvId=" + appEnvId
-				+ ", deviceAlias=" + deviceAlias + "}";
+				+ ", env=" + env + ", appName=" + appName + ", appEnvId="
+				+ appEnvId + ", deviceAlias=" + deviceAlias + "}";
 	}
 }

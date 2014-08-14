@@ -22,6 +22,7 @@ public class AppIdentityTest {
 		Integer deviceAppId = Integer.valueOf(22);
 		String appNameId = "appNameId";
 		Integer envId = Integer.valueOf(8);
+		String env = "env";
 		String appName = "appName";
 		String appEnvId = "appEnvId";
 		String deviceAlias = "deviceAlias";
@@ -31,6 +32,7 @@ public class AppIdentityTest {
 		builder.deviceAppId(deviceAppId);
 		builder.appNameId(appNameId);
 		builder.envId(envId);
+		builder.env(env);
 		builder.appName(appName);
 		builder.appEnvId(appEnvId);
 		builder.deviceAlias(deviceAlias);
@@ -43,6 +45,7 @@ public class AppIdentityTest {
 		Assert.assertEquals(deviceAppId, appIdentity.getDeviceAppId());
 		Assert.assertEquals(appNameId, appIdentity.getAppNameId());
 		Assert.assertEquals(envId, appIdentity.getEnvId());
+		Assert.assertEquals(env, appIdentity.getEnv());
 		Assert.assertEquals(appName, appIdentity.getAppName());
 		Assert.assertEquals(appEnvId, appIdentity.getAppEnvId());
 		Assert.assertEquals(deviceAlias, appIdentity.getDeviceAlias());
