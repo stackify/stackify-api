@@ -35,6 +35,7 @@ public class LogMsgGroupTest {
 		Integer cdId = Integer.valueOf(14);
 		Integer cdAppId = Integer.valueOf(15);
 		String appNameId = "appNameId";
+		String appEnvId = "appEnvId";
 		Integer envId = Integer.valueOf(16);
 		String env = "env";
 		String serverName = "serverName";
@@ -48,6 +49,7 @@ public class LogMsgGroupTest {
 		builder.cdId(cdId);
 		builder.cdAppId(cdAppId);
 		builder.appNameId(appNameId);
+		builder.appEnvId(appEnvId);
 		builder.envId(envId);
 		builder.env(env);
 		builder.serverName(serverName);
@@ -64,6 +66,7 @@ public class LogMsgGroupTest {
 		Assert.assertEquals(cdId, logMsgGroup.getCdId());
 		Assert.assertEquals(cdAppId, logMsgGroup.getCdAppId());
 		Assert.assertEquals(appNameId, logMsgGroup.getAppNameId());
+		Assert.assertEquals(appEnvId, logMsgGroup.getAppEnvId());
 		Assert.assertEquals(envId, logMsgGroup.getEnvId());
 		Assert.assertEquals(env, logMsgGroup.getEnv());
 		Assert.assertEquals(serverName, logMsgGroup.getServerName());

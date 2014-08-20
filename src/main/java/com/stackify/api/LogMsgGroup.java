@@ -48,6 +48,12 @@ public class LogMsgGroup {
     private final String appNameId;
     
 	/**
+	 * Application/environment id
+	 */
+	@JsonProperty("AppEnvID")
+    private final String appEnvId;
+	
+	/**
 	 * Environment id
 	 */
 	@JsonProperty("EnvID")
@@ -117,6 +123,13 @@ public class LogMsgGroup {
 	}
 
 	/**
+	 * @return the appEnvId
+	 */
+	public String getAppEnvId() {
+		return appEnvId;
+	}
+
+	/**
 	 * @return the envId
 	 */
 	public Integer getEnvId() {
@@ -179,6 +192,7 @@ public class LogMsgGroup {
 	    this.cdId = builder.cdId;
 	    this.cdAppId = builder.cdAppId;
 	    this.appNameId = builder.appNameId;
+	    this.appEnvId = builder.appEnvId;
 	    this.envId = builder.envId;
 	    this.env = builder.env;
 	    this.serverName = builder.serverName;
@@ -218,6 +232,12 @@ public class LogMsgGroup {
 		 */
 		@JsonProperty("AppNameID")
 		private String appNameId;
+		
+		/**
+		 * The builder's appEnvId
+		 */
+		@JsonProperty("AppEnvID")
+		private String appEnvId;
 		
 		/**
 		 * The builder's envId
@@ -294,6 +314,16 @@ public class LogMsgGroup {
 		 */
 		public Builder appNameId(final String appNameId) {
 		    this.appNameId = appNameId;
+		    return this;
+		}
+		
+		/**
+		 * Sets the builder's appEnvId
+		 * @param appEnvId The appEnvId to be set
+		 * @return Reference to the current object
+		 */
+		public Builder appEnvId(final String appEnvId) {
+		    this.appEnvId = appEnvId;
 		    return this;
 		}
 		
