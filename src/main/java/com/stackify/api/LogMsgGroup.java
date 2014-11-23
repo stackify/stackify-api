@@ -39,67 +39,67 @@ public class LogMsgGroup {
 	 * Client device application id
 	 */
 	@JsonProperty("CDAppID")
-    private final Integer cdAppId;
-    
+	private final Integer cdAppId;
+
 	/**
 	 * Application name id
 	 */
 	@JsonProperty("AppNameID")
-    private final String appNameId;
-    
+	private final String appNameId;
+
 	/**
 	 * Application/environment id
 	 */
 	@JsonProperty("AppEnvID")
-    private final String appEnvId;
-	
+	private final String appEnvId;
+
 	/**
 	 * Environment id
 	 */
 	@JsonProperty("EnvID")
-    private final Integer envId;
-    
+	private final Integer envId;
+
 	/**
 	 * Environment name
 	 */
 	@JsonProperty("Env")
-    private final String env;
-    
+	private final String env;
+
 	/**
 	 * Device name
 	 */
 	@JsonProperty("ServerName")
-    private final String serverName;
-        
+	private final String serverName;
+
 	/**
 	 * Application name
 	 */
 	@JsonProperty("AppName")
-    private final String appName;
-    
+	private final String appName;
+
 	/**
 	 * Application path
 	 */
 	@JsonProperty("AppLoc")
-    private final String appLoc;
-    
+	private final String appLoc;
+
 	/**
 	 * Logger project
 	 */
 	@JsonProperty("Logger")
-    private final String logger;
-    
+	private final String logger;
+
 	/**
 	 * Logger platform ("java")
 	 */
 	@JsonProperty("Platform")
-    private final String platform;
+	private final String platform;
 
 	/**
 	 * Log messages
 	 */
 	@JsonProperty("Msgs")
-    private final List<LogMsg> msgs;
+	private final List<LogMsg> msgs;
 
 	/**
 	 * @return the cdId
@@ -186,21 +186,40 @@ public class LogMsgGroup {
 	}
 
 	/**
+ 	 * @return An instance of Builder, based on current state
+	 */
+	public Builder toBuilder() {
+		return newBuilder()
+			.cdId(this.cdId)
+			.cdAppId(this.cdAppId)
+			.appNameId(this.appNameId)
+			.appEnvId(this.appEnvId)
+			.envId(this.envId)
+			.env(this.env)
+			.serverName(this.serverName)
+			.appName(this.appName)
+			.appLoc(this.appLoc)
+			.logger(this.logger)
+			.platform(this.platform)
+			.msgs(this.msgs);
+	}
+
+	/**
 	 * @param builder The Builder object that contains all of the values for initialization
 	 */
 	private LogMsgGroup(final Builder builder) {
-	    this.cdId = builder.cdId;
-	    this.cdAppId = builder.cdAppId;
-	    this.appNameId = builder.appNameId;
-	    this.appEnvId = builder.appEnvId;
-	    this.envId = builder.envId;
-	    this.env = builder.env;
-	    this.serverName = builder.serverName;
-	    this.appName = builder.appName;
-	    this.appLoc = builder.appLoc;
-	    this.logger = builder.logger;
-	    this.platform = builder.platform;
-	    this.msgs = builder.msgs;
+		this.cdId = builder.cdId;
+		this.cdAppId = builder.cdAppId;
+		this.appNameId = builder.appNameId;
+		this.appEnvId = builder.appEnvId;
+		this.envId = builder.envId;
+		this.env = builder.env;
+		this.serverName = builder.serverName;
+		this.appName = builder.appName;
+		this.appLoc = builder.appLoc;
+		this.logger = builder.logger;
+		this.platform = builder.platform;
+		this.msgs = builder.msgs;
 	}
 
 	/**
@@ -220,61 +239,61 @@ public class LogMsgGroup {
 		 */
 		@JsonProperty("CDID")
 		private Integer cdId;
-		
+
 		/**
 		 * The builder's cdAppId
 		 */
 		@JsonProperty("CDAppID")
 		private Integer cdAppId;
-		
+
 		/**
 		 * The builder's appNameId
 		 */
 		@JsonProperty("AppNameID")
 		private String appNameId;
-		
+
 		/**
 		 * The builder's appEnvId
 		 */
 		@JsonProperty("AppEnvID")
 		private String appEnvId;
-		
+
 		/**
 		 * The builder's envId
 		 */
 		@JsonProperty("EnvID")
 		private Integer envId;
-		
+
 		/**
 		 * The builder's env
 		 */
 		@JsonProperty("Env")
 		private String env;
-		
+
 		/**
 		 * The builder's serverName
 		 */
 		@JsonProperty("ServerName")
 		private String serverName;
-		
+
 		/**
 		 * The builder's appName
 		 */
 		@JsonProperty("AppName")
 		private String appName;
-		
+
 		/**
 		 * The builder's appLoc
 		 */
 		@JsonProperty("AppLoc")
 		private String appLoc;
-		
+
 		/**
 		 * The builder's logger
 		 */
 		@JsonProperty("Logger")
 		private String logger;
-		
+
 		/**
 		 * The builder's platform
 		 */
@@ -286,7 +305,7 @@ public class LogMsgGroup {
 		 */
 		@JsonProperty("Msgs")
 		private List<LogMsg> msgs;
-		
+
 		/**
 		 * Sets the builder's cdId
 		 * @param cdId The cdId to be set
@@ -296,7 +315,7 @@ public class LogMsgGroup {
 		    this.cdId = cdId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's cdAppId
 		 * @param cdAppId The cdAppId to be set
@@ -306,7 +325,7 @@ public class LogMsgGroup {
 		    this.cdAppId = cdAppId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's appNameId
 		 * @param appNameId The appNameId to be set
@@ -316,7 +335,7 @@ public class LogMsgGroup {
 		    this.appNameId = appNameId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's appEnvId
 		 * @param appEnvId The appEnvId to be set
@@ -326,7 +345,7 @@ public class LogMsgGroup {
 		    this.appEnvId = appEnvId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's envId
 		 * @param envId The envId to be set
@@ -336,7 +355,7 @@ public class LogMsgGroup {
 		    this.envId = envId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's env
 		 * @param env The env to be set
@@ -346,7 +365,7 @@ public class LogMsgGroup {
 		    this.env = env;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's serverName
 		 * @param serverName The serverName to be set
@@ -356,7 +375,7 @@ public class LogMsgGroup {
 		    this.serverName = serverName;
 		    return this;
 		}
-				
+
 		/**
 		 * Sets the builder's appName
 		 * @param appName The appName to be set
@@ -366,7 +385,7 @@ public class LogMsgGroup {
 		    this.appName = appName;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's appLoc
 		 * @param appLoc The appLoc to be set
@@ -376,7 +395,7 @@ public class LogMsgGroup {
 		    this.appLoc = appLoc;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's logger
 		 * @param logger The logger to be set
@@ -386,7 +405,7 @@ public class LogMsgGroup {
 		    this.logger = logger;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's platform
 		 * @param platform The platform to be set
@@ -406,7 +425,7 @@ public class LogMsgGroup {
 		    this.msgs = msgs;
 		    return this;
 		}
-		
+
 		/**
 		 * @return A new object constructed from this builder
 		 */
