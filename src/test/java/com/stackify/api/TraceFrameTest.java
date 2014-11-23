@@ -20,7 +20,7 @@ import org.junit.Test;
 
 /**
  * TraceFrame JUnit Test
- * 
+ *
  * @author Eric Martin
  */
 public class TraceFrameTest {
@@ -39,11 +39,11 @@ public class TraceFrameTest {
 		builder.lineNum(lineNumber);
 		builder.method(methodName);
 		TraceFrame stackFrame = builder.build();
-		
+
 		Assert.assertNotNull(stackFrame);
-		
+
 		Assert.assertEquals(fileName, stackFrame.getCodeFileName());
 		Assert.assertEquals(lineNumber, stackFrame.getLineNum());
-		Assert.assertEquals(methodName, stackFrame.getMethod());		
+		Assert.assertEquals(methodName, stackFrame.getMethod());
 	}
 }
