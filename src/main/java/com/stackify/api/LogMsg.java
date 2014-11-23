@@ -145,6 +145,9 @@ public class LogMsg {
 		return srcLine;
 	}
 
+	/**
+	 * @return An instance of Builder, based on current class state
+	 */
 	public Builder toBuilder() {
 		return newBuilder()
 			.msg(this.msg)
