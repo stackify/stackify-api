@@ -28,7 +28,7 @@ import com.stackify.api.TraceFrame;
 
 /**
  * ErrorItem JUnit Test
- * 
+ *
  * @author Eric Martin
  */
 public class ErrorItemTest {
@@ -44,11 +44,11 @@ public class ErrorItemTest {
 		List<TraceFrame> stackTrace = new ArrayList<TraceFrame>();
 		ErrorItem cause = ErrorItem.newBuilder().build();
 		String errorTypeCode = "errorTypeCode";
-		
+
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("key1", "value1");
 		data.put("key2", "value2");
-		
+
 		ErrorItem.Builder builder = ErrorItem.newBuilder();
 		builder.message(message);
 		builder.errorType(className);
@@ -58,15 +58,15 @@ public class ErrorItemTest {
 		builder.errorTypeCode(errorTypeCode);
 		builder.data(data);
 		ErrorItem errorDetail = builder.build();
-		
+
 		Assert.assertNotNull(errorDetail);
-		
+
 		Assert.assertEquals(message, errorDetail.getMessage());
 		Assert.assertEquals(className, errorDetail.getErrorType());
-		Assert.assertEquals(methodName, errorDetail.getSourceMethod());		
-		Assert.assertEquals(stackTrace, errorDetail.getStackTrace());		
-		Assert.assertEquals(cause, errorDetail.getInnerError());		
-		Assert.assertEquals(errorTypeCode, errorDetail.getErrorTypeCode());		
-		Assert.assertEquals(data, errorDetail.getData());		
+		Assert.assertEquals(methodName, errorDetail.getSourceMethod());
+		Assert.assertEquals(stackTrace, errorDetail.getStackTrace());
+		Assert.assertEquals(cause, errorDetail.getInnerError());
+		Assert.assertEquals(errorTypeCode, errorDetail.getErrorTypeCode());
+		Assert.assertEquals(data, errorDetail.getData());
 	}
 }
