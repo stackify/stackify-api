@@ -44,7 +44,7 @@ public class LogMsgGroupTest {
 		String logger = "logger";
 		String platform = "platform";
 		List<LogMsg> msgs = Mockito.mock(List.class);
-		
+
 		LogMsgGroup.Builder builder = LogMsgGroup.newBuilder();
 		builder.cdId(cdId);
 		builder.cdAppId(cdAppId);
@@ -58,11 +58,11 @@ public class LogMsgGroupTest {
 		builder.logger(logger);
 		builder.platform(platform);
 		builder.msgs(msgs);
-		
+
 		LogMsgGroup logMsgGroup = builder.build();
-		
+
 		Assert.assertNotNull(logMsgGroup);
-		
+
 		Assert.assertEquals(cdId, logMsgGroup.getCdId());
 		Assert.assertEquals(cdAppId, logMsgGroup.getCdAppId());
 		Assert.assertEquals(appNameId, logMsgGroup.getAppNameId());
