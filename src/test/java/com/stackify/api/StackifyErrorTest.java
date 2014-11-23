@@ -24,7 +24,7 @@ import org.junit.Test;
 
 /**
  * StackifyError JUnit Test
- * 
+ *
  * @author Eric Martin
  */
 public class StackifyErrorTest {
@@ -41,7 +41,7 @@ public class StackifyErrorTest {
 		Map<String, String> serverVariables = Collections.singletonMap("serverKey", "serverValue");
 		String customerName = "customerName";
 		String userName = "userName";
-		
+
 		StackifyError.Builder builder = StackifyError.newBuilder();
 		builder.environmentDetail(environment);
 		builder.occurredEpochMillis(timeStamp);
@@ -51,11 +51,11 @@ public class StackifyErrorTest {
 		builder.customerName(customerName);
 		builder.userName(userName);
 		StackifyError stackifyError = builder.build();
-		
+
 		Assert.assertNotNull(stackifyError);
-		
+
 		Assert.assertEquals(environment, stackifyError.getEnvironmentDetail());
-		Assert.assertEquals(timeStamp, stackifyError.getOccurredEpochMillis());		
+		Assert.assertEquals(timeStamp, stackifyError.getOccurredEpochMillis());
 		Assert.assertEquals(errorDetail, stackifyError.getError());
 		Assert.assertEquals(webRequestDetail, stackifyError.getWebRequestDetail());
 		Assert.assertEquals(serverVariables, stackifyError.getServerVariables());
