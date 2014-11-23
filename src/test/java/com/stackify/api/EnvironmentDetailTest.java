@@ -20,7 +20,7 @@ import org.junit.Test;
 
 /**
  * EnvironmentDetail JUnit Test
- * 
+ *
  * @author Eric Martin
  */
 public class EnvironmentDetailTest {
@@ -35,7 +35,7 @@ public class EnvironmentDetailTest {
 		String appLocation = "location";
 		String configuredAppName = "configuredAppName";
 		String configuredEnvironmentName = "configuredEnvironmentName";
-		
+
 		EnvironmentDetail.Builder builder = EnvironmentDetail.newBuilder();
 		builder.deviceName(deviceName);
 		builder.appName(appName);
@@ -43,13 +43,13 @@ public class EnvironmentDetailTest {
 		builder.configuredAppName(configuredAppName);
 		builder.configuredEnvironmentName(configuredEnvironmentName);
 		EnvironmentDetail environment = builder.build();
-		
+
 		Assert.assertNotNull(environment);
-		
+
 		Assert.assertEquals(deviceName, environment.getDeviceName());
 		Assert.assertEquals(appName, environment.getAppName());
-		Assert.assertEquals(appLocation, environment.getAppLocation());		
-		Assert.assertEquals(configuredAppName, environment.getConfiguredAppName());		
-		Assert.assertEquals(configuredEnvironmentName, environment.getConfiguredEnvironmentName());		
+		Assert.assertEquals(appLocation, environment.getAppLocation());
+		Assert.assertEquals(configuredAppName, environment.getConfiguredAppName());
+		Assert.assertEquals(configuredEnvironmentName, environment.getConfiguredEnvironmentName());
 	}
 }
