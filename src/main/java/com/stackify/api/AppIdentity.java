@@ -132,7 +132,9 @@ public class AppIdentity {
 		return deviceAlias;
 	}
 
-
+	/**
+	 * @return An instance of Builder, based on current state
+	 */
 	public Builder toBuilder() {
 		return newBuilder()
 			.deviceId(this.deviceId)
