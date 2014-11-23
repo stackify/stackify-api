@@ -33,43 +33,43 @@ public class AppIdentity {
 	 */
 	@JsonProperty("DeviceID")
 	private final Integer deviceId;
-	
+
 	/**
 	 * Device application id
 	 */
 	@JsonProperty("DeviceAppID")
 	private final Integer deviceAppId;
-	
+
 	/**
 	 * Application name id
 	 */
 	@JsonProperty("AppNameID")
 	private final String appNameId;
-	
+
 	/**
 	 * Environment id
 	 */
 	@JsonProperty("EnvID")
 	private final Integer envId;
-	
+
 	/**
 	 * Environment
 	 */
 	@JsonProperty("Env")
 	private final String env;
-	
+
 	/**
 	 * Application name
 	 */
 	@JsonProperty("AppName")
 	private final String appName;
-	
+
 	/**
 	 * Application-Environment id
 	 */
 	@JsonProperty("AppEnvID")
 	private final String appEnvId;
-	
+
 	/**
 	 * Device alias
 	 */
@@ -132,18 +132,31 @@ public class AppIdentity {
 		return deviceAlias;
 	}
 
+
+	public Builder toBuilder() {
+		return newBuilder()
+			.deviceId(this.deviceId)
+			.deviceAppId(this.deviceAppId)
+			.appNameId(this.appNameId)
+			.envId(this.envId)
+			.env(this.env)
+			.appName(this.appName)
+			.appEnvId(this.appEnvId)
+			.deviceAlias(this.deviceAlias);
+	}
+
 	/**
 	 * @param builder The Builder object that contains all of the values for initialization
 	 */
 	private AppIdentity(final Builder builder) {
-	    this.deviceId = builder.deviceId;
-	    this.deviceAppId = builder.deviceAppId;
-	    this.appNameId = builder.appNameId;
-	    this.envId = builder.envId;
-	    this.env = builder.env;
-	    this.appName = builder.appName;
-	    this.appEnvId = builder.appEnvId;
-	    this.deviceAlias = builder.deviceAlias;
+		this.deviceId = builder.deviceId;
+		this.deviceAppId = builder.deviceAppId;
+		this.appNameId = builder.appNameId;
+		this.envId = builder.envId;
+		this.env = builder.env;
+		this.appName = builder.appName;
+		this.appEnvId = builder.appEnvId;
+		this.deviceAlias = builder.deviceAlias;
 	}
 
 	/**
@@ -164,49 +177,49 @@ public class AppIdentity {
 		 */
 		@JsonProperty("DeviceID")
 		private Integer deviceId;
-		
+
 		/**
 		 * The builder's deviceAppId
 		 */
 		@JsonProperty("DeviceAppID")
 		private Integer deviceAppId;
-		
+
 		/**
 		 * The builder's appNameId
 		 */
 		@JsonProperty("AppNameID")
 		private String appNameId;
-		
+
 		/**
 		 * The builder's envId
 		 */
 		@JsonProperty("EnvID")
 		private Integer envId;
-		
+
 		/**
 		 * The builder's env
 		 */
 		@JsonProperty("Env")
 		private String env;
-		
+
 		/**
 		 * The builder's appName
 		 */
 		@JsonProperty("AppName")
 		private String appName;
-		
+
 		/**
 		 * The builder's appEnvId
 		 */
 		@JsonProperty("AppEnvID")
 		private String appEnvId;
-		
+
 		/**
 		 * The builder's deviceAlias
 		 */
 		@JsonProperty("DeviceAlias")
 		private String deviceAlias;
-		
+
 		/**
 		 * Sets the builder's deviceId
 		 * @param deviceId The deviceId to be set
@@ -216,7 +229,7 @@ public class AppIdentity {
 		    this.deviceId = deviceId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's deviceAppId
 		 * @param deviceAppId The deviceAppId to be set
@@ -226,7 +239,7 @@ public class AppIdentity {
 		    this.deviceAppId = deviceAppId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's appNameId
 		 * @param appNameId The appNameId to be set
@@ -236,7 +249,7 @@ public class AppIdentity {
 		    this.appNameId = appNameId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's envId
 		 * @param envId The envId to be set
@@ -246,17 +259,17 @@ public class AppIdentity {
 		    this.envId = envId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's env
-		 * @param envId The env to be set
+		 * @param env The env to be set
 		 * @return Reference to the current object
 		 */
 		public Builder env(final String env) {
 		    this.env = env;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's appName
 		 * @param appName The appName to be set
@@ -266,7 +279,7 @@ public class AppIdentity {
 		    this.appName = appName;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's appEnvId
 		 * @param appEnvId The appEnvId to be set
@@ -276,7 +289,7 @@ public class AppIdentity {
 		    this.appEnvId = appEnvId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's deviceAlias
 		 * @param deviceAlias The deviceAlias to be set
@@ -286,7 +299,7 @@ public class AppIdentity {
 		    this.deviceAlias = deviceAlias;
 		    return this;
 		}
-		
+
 		/**
 		 * @return A new object constructed from this builder
 		 */
