@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * Contains the details of a single exception including the stack trace and any causes
- * 
+ *
  * <p>
  * Example:
  * <pre>
@@ -49,25 +49,25 @@ public class ErrorItem {
 	 */
 	@JsonProperty("Message")
 	private final String message;
-	
+
 	/**
 	 * The error's class name
 	 */
 	@JsonProperty("ErrorType")
 	private final String errorType;
-	
+
 	/**
 	 * The error type code
 	 */
 	@JsonProperty("ErrorTypeCode")
 	private final String errorTypeCode;
-	
+
 	/**
 	 * Custom data for the error
 	 */
 	@JsonProperty("Data")
 	private final Map<String, String> data;
-	
+
 	/**
 	 * The method name
 	 */
@@ -136,6 +136,20 @@ public class ErrorItem {
 	}
 
 	/**
+	 * @return an instance of Builder, based on current state
+	 */
+	public Builder toBuilder() {
+		return newBuilder()
+			.message(this.message)
+			.errorType(this.errorType)
+			.errorTypeCode(this.errorTypeCode)
+			.data(this.data)
+			.sourceMethod(this.sourceMethod)
+			.stackTrace(this.stackTrace)
+			.innerError(this.innerError);
+	}
+
+	/**
 	 * @param builder The Builder object that contains all of the values for initialization
 	 */
 	private ErrorItem(final Builder builder) {
@@ -166,43 +180,43 @@ public class ErrorItem {
 		 */
 		@JsonProperty("Message")
 		private String message;
-		
+
 		/**
 		 * The builder's errorType
 		 */
 		@JsonProperty("ErrorType")
 		private String errorType;
-		
+
 		/**
 		 * The builder's errorTypeCode
 		 */
 		@JsonProperty("ErrorTypeCode")
 		private String errorTypeCode;
-		
+
 		/**
 		 * The builder's data
 		 */
 		@JsonProperty("Data")
 		private Map<String,String> data;
-		
+
 		/**
 		 * The builder's sourceMethod
 		 */
 		@JsonProperty("SourceMethod")
 		private String sourceMethod;
-		
+
 		/**
 		 * The builder's stackTrace
 		 */
 		@JsonProperty("StackTrace")
 		private List<TraceFrame> stackTrace;
-		
+
 		/**
 		 * The builder's innerError
 		 */
 		@JsonProperty("InnerError")
 		private ErrorItem innerError;
-		
+
 		/**
 		 * Sets the builder's message
 		 * @param message The message to be set
@@ -212,7 +226,7 @@ public class ErrorItem {
 			this.message = message;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's errorType
 		 * @param errorType The errorType to be set
@@ -222,7 +236,7 @@ public class ErrorItem {
 			this.errorType = errorType;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's errorTypeCode
 		 * @param errorTypeCode The errorTypeCode to be set
@@ -232,7 +246,7 @@ public class ErrorItem {
 			this.errorTypeCode = errorTypeCode;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's data
 		 * @param data The data to be set
@@ -242,7 +256,7 @@ public class ErrorItem {
 			this.data = data;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's sourceMethod
 		 * @param sourceMethod The sourceMethod to be set
@@ -252,7 +266,7 @@ public class ErrorItem {
 			this.sourceMethod = sourceMethod;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's stackTrace
 		 * @param stackTrace The stackTrace to be set
@@ -262,7 +276,7 @@ public class ErrorItem {
 			this.stackTrace = stackTrace;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's innerError
 		 * @param innerError The innerError to be set
@@ -272,7 +286,7 @@ public class ErrorItem {
 			this.innerError = innerError;
 			return this;
 		}
-		
+
 		/**
 		 * @return A new object constructed from this builder
 		 */

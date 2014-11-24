@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * Encapsulates all details about an error that will be sent to Stackify
- * 
+ *
  * <p>
  * Example:
  * <pre>
@@ -42,7 +42,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(builder = StackifyError.Builder.class)
 public class StackifyError {
-	
+
 	/**
 	 * Environment
 	 */
@@ -54,7 +54,7 @@ public class StackifyError {
 	 */
 	@JsonProperty("OccurredEpochMillis")
 	private final Date occurredEpochMillis;
-	
+
 	/**
 	 * Error details
 	 */
@@ -66,19 +66,19 @@ public class StackifyError {
 	 */
 	@JsonProperty("WebRequestDetail")
 	private final WebRequestDetail webRequestDetail;
-		
+
 	/**
 	 * Server variables
 	 */
 	@JsonProperty("ServerVariables")
 	private final Map<String, String> serverVariables;
-		
+
 	/**
 	 * Customer name
 	 */
 	@JsonProperty("CustomerName")
 	private final String customerName;
-	
+
 	/**
 	 * User name
 	 */
@@ -135,6 +135,20 @@ public class StackifyError {
 	}
 
 	/**
+	 * @return an instance of builder based on current state
+	 */
+	public Builder toBuilder() {
+		return newBuilder()
+			.environmentDetail(this.environmentDetail)
+			.occurredEpochMillis(this.occurredEpochMillis)
+			.error(this.error)
+			.webRequestDetail(this.webRequestDetail)
+			.serverVariables(this.serverVariables)
+			.customerName(this.customerName)
+			.userName(this.userName);
+	}
+
+	/**
 	 * @param builder The Builder object that contains all of the values for initialization
 	 */
 	private StackifyError(final Builder builder) {
@@ -159,49 +173,49 @@ public class StackifyError {
 	 */
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	public static class Builder {
-		
+
 		/**
 		 * The builder's environmentDetail
 		 */
 		@JsonProperty("EnvironmentDetail")
 		private EnvironmentDetail environmentDetail;
-		
+
 		/**
 		 * The builder's occurredEpochMillis
 		 */
 		@JsonProperty("OccurredEpochMillis")
 		private Date occurredEpochMillis;
-		
+
 		/**
 		 * The builder's error
 		 */
 		@JsonProperty("Error")
 		private ErrorItem error;
-		
+
 		/**
 		 * The builder's webRequestDetail
 		 */
 		@JsonProperty("WebRequestDetail")
 		private WebRequestDetail webRequestDetail;
-				
+
 		/**
 		 * The builder's serverVariables
 		 */
 		@JsonProperty("ServerVariables")
 		private Map<String,String> serverVariables;
-				
+
 		/**
 		 * The builder's customerName
 		 */
 		@JsonProperty("CustomerName")
 		private String customerName;
-		
+
 		/**
 		 * The builder's userName
 		 */
 		@JsonProperty("UserName")
 		private String userName;
-				
+
 		/**
 		 * Sets the builder's environmentDetail
 		 * @param environmentDetail The environmentDetail to be set
@@ -211,7 +225,7 @@ public class StackifyError {
 			this.environmentDetail = environmentDetail;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's occurredEpochMillis
 		 * @param occurredEpochMillis The occurredEpochMillis to be set
@@ -221,7 +235,7 @@ public class StackifyError {
 			this.occurredEpochMillis = occurredEpochMillis;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's error
 		 * @param error The error to be set
@@ -231,7 +245,7 @@ public class StackifyError {
 			this.error = error;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's webRequestDetail
 		 * @param webRequestDetail The webRequestDetail to be set
@@ -241,7 +255,7 @@ public class StackifyError {
 			this.webRequestDetail = webRequestDetail;
 			return this;
 		}
-				
+
 		/**
 		 * Sets the builder's serverVariables
 		 * @param serverVariables The serverVariables to be set
@@ -251,7 +265,7 @@ public class StackifyError {
 			this.serverVariables = serverVariables;
 			return this;
 		}
-				
+
 		/**
 		 * Sets the builder's customerName
 		 * @param customerName The customerName to be set
@@ -261,7 +275,7 @@ public class StackifyError {
 			this.customerName = customerName;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's userName
 		 * @param userName The userName to be set
@@ -271,7 +285,7 @@ public class StackifyError {
 			this.userName = userName;
 			return this;
 		}
-		
+
 		/**
 		 * @return A new object constructed from this builder
 		 */

@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * Contains details about the web request associated to the error
- * 
+ *
  * <p>
  * Example:
  * <pre>
@@ -49,61 +49,61 @@ public class WebRequestDetail {
 	 */
 	@JsonProperty("UserIPAddress")
 	private final String userIpAddress;
-	
+
 	/**
 	 * HTTP method
 	 */
 	@JsonProperty("HttpMethod")
 	private final String httpMethod;
-	
+
 	/**
 	 * Request protocol
 	 */
 	@JsonProperty("RequestProtocol")
 	private final String requestProtocol;
-	
+
 	/**
 	 * Request URL
 	 */
 	@JsonProperty("RequestUrl")
 	private final String requestUrl;
-	
+
 	/**
 	 * Request URL root
 	 */
 	@JsonProperty("RequestUrlRoot")
 	private final String requestUrlRoot;
-	
+
 	/**
 	 * Referral URL
 	 */
 	@JsonProperty("ReferralUrl")
 	private final String referralUrl;
-	
+
 	/**
 	 * Headers
 	 */
 	@JsonProperty("Headers")
 	private final Map<String, String> headers;
-	
+
 	/**
 	 * Cookies
 	 */
 	@JsonProperty("Cookies")
 	private final Map<String, String> cookies;
-	
+
 	/**
 	 * Query string parameters
 	 */
 	@JsonProperty("QueryString")
 	private final Map<String, String> queryString;
-	
+
 	/**
 	 * Form post data
 	 */
 	@JsonProperty("PostData")
 	private final Map<String, String> postData;
-	
+
 	/**
 	 * Session data
 	 */
@@ -121,13 +121,13 @@ public class WebRequestDetail {
 	 */
 	@JsonProperty("MVCAction")
 	private final String mvcAction;
-	
+
 	/**
 	 * MVC controller
 	 */
 	@JsonProperty("MVCController")
 	private final String mvcController;
-	
+
 	/**
 	 * MVC area
 	 */
@@ -239,6 +239,25 @@ public class WebRequestDetail {
 		return mvcArea;
 	}
 
+	public Builder toBuilder() {
+		return newBuilder()
+			.userIpAddress(this.userIpAddress)
+			.httpMethod(this.httpMethod)
+			.requestProtocol(this.requestProtocol)
+			.requestUrl(this.requestUrl)
+			.requestUrlRoot(this.requestUrlRoot)
+			.referralUrl(this.referralUrl)
+			.headers(this.headers)
+			.cookies(this.cookies)
+			.queryString(this.queryString)
+			.postData(this.postData)
+			.sessionData(this.sessionData)
+			.postDataRaw(this.postDataRaw)
+			.mvcAction(this.mvcAction)
+			.mvcController(this.mvcController)
+			.mvcArea(this.mvcArea);
+	}
+
 	/**
 	 * @param builder The Builder object that contains all of the values for initialization
 	 */
@@ -278,91 +297,91 @@ public class WebRequestDetail {
 		 */
 		@JsonProperty("UserIPAddress")
 		private String userIpAddress;
-		
+
 		/**
 		 * The builder's httpMethod
 		 */
 		@JsonProperty("HttpMethod")
 		private String httpMethod;
-		
+
 		/**
 		 * The builder's requestProtocol
 		 */
 		@JsonProperty("RequestProtocol")
 		private String requestProtocol;
-		
+
 		/**
 		 * The builder's requestUrl
 		 */
 		@JsonProperty("RequestUrl")
 		private String requestUrl;
-		
+
 		/**
 		 * The builder's requestUrlRoot
 		 */
 		@JsonProperty("RequestUrlRoot")
 		private String requestUrlRoot;
-		
+
 		/**
 		 * The builder's referralUrl
 		 */
 		@JsonProperty("ReferralUrl")
 		private String referralUrl;
-		
+
 		/**
 		 * The builder's headers
 		 */
 		@JsonProperty("Headers")
 		private Map<String,String> headers;
-		
+
 		/**
 		 * The builder's cookies
 		 */
 		@JsonProperty("Cookies")
 		private Map<String,String> cookies;
-		
+
 		/**
 		 * The builder's queryString
 		 */
 		@JsonProperty("QueryString")
 		private Map<String,String> queryString;
-		
+
 		/**
 		 * The builder's postData
 		 */
 		@JsonProperty("PostData")
 		private Map<String,String> postData;
-		
+
 		/**
 		 * The builder's sessionData
 		 */
 		@JsonProperty("SessionData")
 		private Map<String,String> sessionData;
-		
+
 		/**
 		 * The builder's postDataRaw
 		 */
 		@JsonProperty("PostDataRaw")
 		private String postDataRaw;
-		
+
 		/**
 		 * The builder's mvcAction
 		 */
 		@JsonProperty("MVCAction")
 		private String mvcAction;
-		
+
 		/**
 		 * The builder's mvcController
 		 */
 		@JsonProperty("MVCController")
 		private String mvcController;
-		
+
 		/**
 		 * The builder's mvcArea
 		 */
 		@JsonProperty("MVCArea")
 		private String mvcArea;
-		
+
 		/**
 		 * Sets the builder's userIpAddress
 		 * @param userIpAddress The userIpAddress to be set
@@ -372,7 +391,7 @@ public class WebRequestDetail {
 			this.userIpAddress = userIpAddress;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's httpMethod
 		 * @param httpMethod The httpMethod to be set
@@ -382,7 +401,7 @@ public class WebRequestDetail {
 			this.httpMethod = httpMethod;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's requestProtocol
 		 * @param requestProtocol The requestProtocol to be set
@@ -392,7 +411,7 @@ public class WebRequestDetail {
 			this.requestProtocol = requestProtocol;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's requestUrl
 		 * @param requestUrl The requestUrl to be set
@@ -402,7 +421,7 @@ public class WebRequestDetail {
 			this.requestUrl = requestUrl;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's requestUrlRoot
 		 * @param requestUrlRoot The requestUrlRoot to be set
@@ -412,7 +431,7 @@ public class WebRequestDetail {
 			this.requestUrlRoot = requestUrlRoot;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's referralUrl
 		 * @param referralUrl The referralUrl to be set
@@ -422,7 +441,7 @@ public class WebRequestDetail {
 			this.referralUrl = referralUrl;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's headers
 		 * @param headers The headers to be set
@@ -432,7 +451,7 @@ public class WebRequestDetail {
 			this.headers = headers;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's cookies
 		 * @param cookies The cookies to be set
@@ -442,7 +461,7 @@ public class WebRequestDetail {
 			this.cookies = cookies;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's queryString
 		 * @param queryString The queryString to be set
@@ -452,7 +471,7 @@ public class WebRequestDetail {
 			this.queryString = queryString;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's postData
 		 * @param postData The postData to be set
@@ -462,7 +481,7 @@ public class WebRequestDetail {
 			this.postData = postData;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's sessionData
 		 * @param sessionData The sessionData to be set
@@ -472,7 +491,7 @@ public class WebRequestDetail {
 			this.sessionData = sessionData;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's postDataRaw
 		 * @param postDataRaw The postDataRaw to be set
@@ -482,7 +501,7 @@ public class WebRequestDetail {
 			this.postDataRaw = postDataRaw;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's mvcAction
 		 * @param mvcAction The mvcAction to be set
@@ -492,7 +511,7 @@ public class WebRequestDetail {
 			this.mvcAction = mvcAction;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's mvcController
 		 * @param mvcController The mvcController to be set
@@ -502,7 +521,7 @@ public class WebRequestDetail {
 			this.mvcController = mvcController;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's mvcArea
 		 * @param mvcArea The mvcArea to be set
@@ -512,7 +531,7 @@ public class WebRequestDetail {
 			this.mvcArea = mvcArea;
 			return this;
 		}
-		
+
 		/**
 		 * @return A new object constructed from this builder
 		 */

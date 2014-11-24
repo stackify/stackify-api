@@ -25,11 +25,11 @@ import com.stackify.api.WebRequestDetail;
 
 /**
  * WebRequestDetail JUnit Test
- * 
+ *
  * @author Eric Martin
  */
 public class WebRequestDetailTest {
-	
+
 	/**
 	 * testBuilder
 	 */
@@ -50,7 +50,7 @@ public class WebRequestDetailTest {
 		String mvcAction = "mvcAction";
 		String mvcController = "mvcController";
 		String mvcArea = "mvcArea";
-		
+
 		WebRequestDetail.Builder builder = WebRequestDetail.newBuilder();
 		builder.userIpAddress(userIpAddress);
 		builder.httpMethod(httpMethod);
@@ -68,9 +68,9 @@ public class WebRequestDetailTest {
 		builder.mvcController(mvcController);
 		builder.mvcArea(mvcArea);
 		WebRequestDetail webRequest = builder.build();
-		
+
 		Assert.assertNotNull(webRequest);
-		
+
 		Assert.assertEquals(userIpAddress, webRequest.getUserIpAddress());
 		Assert.assertEquals(httpMethod, webRequest.getHttpMethod());
 		Assert.assertEquals(requestProtocol, webRequest.getRequestProtocol());

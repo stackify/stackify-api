@@ -21,9 +21,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
- * Contains details of the current application environment such as device name, application name, application 
+ * Contains details of the current application environment such as device name, application name, application
  * location and environment.
- * 
+ *
  * <p>
  * Example:
  * <pre>
@@ -40,19 +40,19 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(builder = EnvironmentDetail.Builder.class)
 public class EnvironmentDetail {
-	
+
 	/**
 	 * Device name
 	 */
 	@JsonProperty("DeviceName")
 	private final String deviceName;
-	
+
 	/**
 	 * Application name
 	 */
 	@JsonProperty("AppName")
 	private final String appName;
-	
+
 	/**
 	 * Application location
 	 */
@@ -64,7 +64,7 @@ public class EnvironmentDetail {
 	 */
 	@JsonProperty("ConfiguredAppName")
 	private final String configuredAppName;
-	
+
 	/**
 	 * Custom application environment
 	 */
@@ -107,6 +107,18 @@ public class EnvironmentDetail {
 	}
 
 	/**
+	 * @return a new instalce of builder based on current state
+	 */
+	public Builder toBuilder() {
+		return newBuilder()
+			.deviceName(this.deviceName)
+			.appName(this.appName)
+			.appLocation(this.appLocation)
+			.configuredAppName(this.configuredAppName)
+			.configuredEnvironmentName(this.configuredEnvironmentName);
+	}
+
+	/**
 	 * @param builder The Builder object that contains all of the values for initialization
 	 */
 	private EnvironmentDetail(final Builder builder) {
@@ -135,31 +147,31 @@ public class EnvironmentDetail {
 		 */
 		@JsonProperty("DeviceName")
 		private String deviceName;
-		
+
 		/**
 		 * The builder's appName
 		 */
 		@JsonProperty("AppName")
 		private String appName;
-		
+
 		/**
 		 * The builder's appLocation
 		 */
 		@JsonProperty("AppLocation")
 		private String appLocation;
-		
+
 		/**
 		 * The builder's configuredAppName
 		 */
 		@JsonProperty("ConfiguredAppName")
 		private String configuredAppName;
-				
+
 		/**
 		 * The builder's configuredEnvironmentName
 		 */
 		@JsonProperty("ConfiguredEnvironmentName")
 		private String configuredEnvironmentName;
-		
+
 		/**
 		 * Sets the builder's deviceName
 		 * @param deviceName The deviceName to be set
@@ -169,7 +181,7 @@ public class EnvironmentDetail {
 			this.deviceName = deviceName;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's appName
 		 * @param appName The appName to be set
@@ -179,7 +191,7 @@ public class EnvironmentDetail {
 			this.appName = appName;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's appLocation
 		 * @param appLocation The appLocation to be set
@@ -189,7 +201,7 @@ public class EnvironmentDetail {
 			this.appLocation = appLocation;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's configuredAppName
 		 * @param configuredAppName The configuredAppName to be set
@@ -199,7 +211,7 @@ public class EnvironmentDetail {
 			this.configuredAppName = configuredAppName;
 			return this;
 		}
-				
+
 		/**
 		 * Sets the builder's configuredEnvironmentName
 		 * @param configuredEnvironmentName The configuredEnvironmentName to be set
@@ -209,7 +221,7 @@ public class EnvironmentDetail {
 			this.configuredEnvironmentName = configuredEnvironmentName;
 			return this;
 		}
-		
+
 		/**
 		 * @return A new object constructed from this builder
 		 */

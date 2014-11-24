@@ -27,61 +27,61 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(builder = LogMsg.Builder.class)
 public class LogMsg {
-    
+
 	/**
 	 * The log message
 	 */
 	@JsonProperty("Msg")
 	private final String msg;
-	
+
 	/**
 	 * Extra contextual data from the log message
 	 */
 	@JsonProperty("data")
 	private final String data;
-	
+
 	/**
 	 * The error/exception details
 	 */
 	@JsonProperty("Ex")
 	private final StackifyError ex;
-	
+
 	/**
 	 * The thread name
 	 */
 	@JsonProperty("Th")
 	private final String th;
-	
+
 	/**
 	 * Unix timestamp of the log message
 	 */
 	@JsonProperty("EpochMs")
 	private final Long epochMs;
-	
+
 	/**
 	 * Log level of the message
 	 */
 	@JsonProperty("Level")
 	private final String level;
-	
+
 	/**
 	 * Transaction id
 	 */
 	@JsonProperty("TransID")
 	private final String transId;
-	
+
 	/**
 	 * Source method name
 	 */
 	@JsonProperty("SrcMethod")
 	private final String srcMethod;
-		
+
 	/**
 	 * Source line number
 	 */
 	@JsonProperty("SrcLine")
 	private final Integer srcLine;
-	
+
 	/**
 	 * @return the msg
 	 */
@@ -146,18 +146,34 @@ public class LogMsg {
 	}
 
 	/**
+	 * @return An instance of Builder, based on current class state
+	 */
+	public Builder toBuilder() {
+		return newBuilder()
+			.msg(this.msg)
+			.data(this.data)
+			.ex(this.ex)
+			.th(this.th)
+			.epochMs(this.epochMs)
+			.level(this.level)
+			.transId(this.transId)
+			.srcMethod(this.srcMethod)
+			.srcLine(this.srcLine);
+	}
+
+	/**
 	 * @param builder The Builder object that contains all of the values for initialization
 	 */
 	private LogMsg(final Builder builder) {
-	    this.msg = builder.msg;
-	    this.data = builder.data;
-	    this.ex = builder.ex;
-	    this.th = builder.th;
-	    this.epochMs = builder.epochMs;
-	    this.level = builder.level;
-	    this.transId = builder.transId;
-	    this.srcMethod = builder.srcMethod;
-	    this.srcLine = builder.srcLine;
+		this.msg = builder.msg;
+		this.data = builder.data;
+		this.ex = builder.ex;
+		this.th = builder.th;
+		this.epochMs = builder.epochMs;
+		this.level = builder.level;
+		this.transId = builder.transId;
+		this.srcMethod = builder.srcMethod;
+		this.srcLine = builder.srcLine;
 	}
 
 	/**
@@ -178,55 +194,55 @@ public class LogMsg {
 		 */
 		@JsonProperty("Msg")
 		private String msg;
-		
+
 		/**
 		 * The builder's data
 		 */
 		@JsonProperty("data")
 		private String data;
-		
+
 		/**
 		 * The builder's ex
 		 */
 		@JsonProperty("Ex")
 		private StackifyError ex;
-		
+
 		/**
 		 * The builder's th
 		 */
 		@JsonProperty("Th")
 		private String th;
-		
+
 		/**
 		 * The builder's epochMs
 		 */
 		@JsonProperty("EpochMs")
 		private Long epochMs;
-		
+
 		/**
 		 * The builder's level
 		 */
 		@JsonProperty("Level")
 		private String level;
-		
+
 		/**
 		 * The builder's transId
 		 */
 		@JsonProperty("TransID")
 		private String transId;
-		
+
 		/**
 		 * The builder's srcMethod
 		 */
 		@JsonProperty("SrcMethod")
 		private String srcMethod;
-				
+
 		/**
 		 * The builder's srcLine
 		 */
 		@JsonProperty("SrcLine")
 		private Integer srcLine;
-				
+
 		/**
 		 * Sets the builder's msg
 		 * @param msg The msg to be set
@@ -236,7 +252,7 @@ public class LogMsg {
 		    this.msg = msg;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's data
 		 * @param data The data to be set
@@ -246,7 +262,7 @@ public class LogMsg {
 		    this.data = data;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's ex
 		 * @param ex The ex to be set
@@ -256,7 +272,7 @@ public class LogMsg {
 		    this.ex = ex;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's th
 		 * @param th The th to be set
@@ -266,7 +282,7 @@ public class LogMsg {
 		    this.th = th;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's epochMs
 		 * @param epochMs The epochMs to be set
@@ -276,7 +292,7 @@ public class LogMsg {
 		    this.epochMs = epochMs;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's level
 		 * @param level The level to be set
@@ -286,7 +302,7 @@ public class LogMsg {
 		    this.level = level;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's transId
 		 * @param transId The transId to be set
@@ -296,7 +312,7 @@ public class LogMsg {
 		    this.transId = transId;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's srcMethod
 		 * @param srcMethod The srcMethod to be set
@@ -306,7 +322,7 @@ public class LogMsg {
 		    this.srcMethod = srcMethod;
 		    return this;
 		}
-		
+
 		/**
 		 * Sets the builder's srcLine
 		 * @param srcLine The srcLine to be set
@@ -316,7 +332,7 @@ public class LogMsg {
 		    this.srcLine = srcLine;
 		    return this;
 		}
-				
+
 		/**
 		 * @return A new object constructed from this builder
 		 */

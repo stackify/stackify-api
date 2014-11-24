@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * Each TraceFrame object represents a single stack frame in a stack trace
- * 
+ *
  * <p>
  * Example:
  * <pre>
@@ -45,13 +45,13 @@ public class TraceFrame {
 	 */
 	@JsonProperty("CodeFileName")
 	private final String codeFileName;
-	
+
 	/**
 	 * The line number
 	 */
 	@JsonProperty("LineNum")
 	private final Integer lineNum;
-	
+
 	/**
 	 * The method name
 	 */
@@ -77,6 +77,16 @@ public class TraceFrame {
 	 */
 	public String getMethod() {
 		return method;
+	}
+
+	/**
+	 * @return an instance of Builder based on current state
+	 */
+	public Builder toBuilder() {
+		return newBuilder()
+			.codeFileName(this.codeFileName)
+			.lineNum(this.lineNum)
+			.method(this.method);
 	}
 
 	/**
@@ -106,19 +116,19 @@ public class TraceFrame {
 		 */
 		@JsonProperty("CodeFileName")
 		private String codeFileName;
-		
+
 		/**
 		 * The builder's lineNum
 		 */
 		@JsonProperty("LineNum")
 		private Integer lineNum;
-		
+
 		/**
 		 * The builder's method
 		 */
 		@JsonProperty("Method")
 		private String method;
-				
+
 		/**
 		 * Sets the builder's codeFileName
 		 * @param codeFileName The codeFileName to be set
@@ -128,7 +138,7 @@ public class TraceFrame {
 			this.codeFileName = codeFileName;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's lineNum
 		 * @param lineNum The lineNum to be set
@@ -138,7 +148,7 @@ public class TraceFrame {
 			this.lineNum = lineNum;
 			return this;
 		}
-		
+
 		/**
 		 * Sets the builder's method
 		 * @param method The method to be set
@@ -148,7 +158,7 @@ public class TraceFrame {
 			this.method = method;
 			return this;
 		}
-				
+
 		/**
 		 * @return A new object constructed from this builder
 		 */

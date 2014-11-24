@@ -39,7 +39,7 @@ public class LogMsgTest {
 		String transId = "transId";
 		String srcMethod = "srcMethod";
 		Integer srcLine = Integer.valueOf(14);
-		
+
 		LogMsg.Builder builder = LogMsg.newBuilder();
 		builder.msg(msg);
 		builder.data(data);
@@ -50,19 +50,19 @@ public class LogMsgTest {
 		builder.transId(transId);
 		builder.srcMethod(srcMethod);
 		builder.srcLine(srcLine);
-		
+
 		LogMsg logMsg = builder.build();
-		
+
 		Assert.assertNotNull(logMsg);
-		
+
 		Assert.assertEquals(msg, logMsg.getMsg());
 		Assert.assertEquals(data, logMsg.getData());
-		Assert.assertEquals(ex, logMsg.getEx());		
-		Assert.assertEquals(th, logMsg.getTh());		
-		Assert.assertEquals(epochMs, logMsg.getEpochMs());		
-		Assert.assertEquals(level, logMsg.getLevel());		
-		Assert.assertEquals(transId, logMsg.getTransId());		
-		Assert.assertEquals(srcMethod, logMsg.getSrcMethod());		
-		Assert.assertEquals(srcLine, logMsg.getSrcLine());		
+		Assert.assertEquals(ex, logMsg.getEx());
+		Assert.assertEquals(th, logMsg.getTh());
+		Assert.assertEquals(epochMs, logMsg.getEpochMs());
+		Assert.assertEquals(level, logMsg.getLevel());
+		Assert.assertEquals(transId, logMsg.getTransId());
+		Assert.assertEquals(srcMethod, logMsg.getSrcMethod());
+		Assert.assertEquals(srcLine, logMsg.getSrcLine());
 	}
 }
