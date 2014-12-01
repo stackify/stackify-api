@@ -1,22 +1,22 @@
-# stackify-api
+# Stackify API
 
-[![Build Status](https://travis-ci.org/stackify/stackify-api.png)](https://travis-ci.org/stackify/stackify-api)
-[![Coverage Status](https://coveralls.io/repos/stackify/stackify-api/badge.png?branch=master)](https://coveralls.io/r/stackify/stackify-api?branch=master)
+TODO
 
-Stackify API
+## SDKs
 
-## License
+- **[.NET](sdks/DotNet.md)**
+- **[Java](sdks/Java.md)**
 
-Copyright 2013 Stackify, LLC.
+## REST API
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+- **[<code>POST</code> Metrics/IdentifyApp](endpoints/POST_Metrics_IdentifyApp.md)**
+- **[<code>POST</code> Log/Save](endpoints/POST_Log_Save.md)**
 
-   http://www.apache.org/licenses/LICENSE-2.0
+## REST API Best Practices
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+- **TODO**
+
+## FAQ
+
+- **TODO**
+
