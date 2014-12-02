@@ -1,6 +1,16 @@
 # Stackify API
 
-TODO
+Errors and Logs Overview:
+
+http://docs.stackify.com/m/7787/l/189767
+
+Custom Metrics Overview:
+
+http://docs.stackify.com/m/7787/l/232533
+
+Sign Up for a Trial:
+
+http://www.stackify.com/sign-up/
 
 ## SDKs
 
@@ -8,6 +18,8 @@ TODO
 - **[Java](sdks/Java.md)**
 
 ## REST API
+
+- **[Best Practices](endpoints/BestPractices.md)**
 
 - **[<code>POST</code> Metrics/IdentifyApp](endpoints/POST_Metrics_IdentifyApp.md)**
 - **[<code>POST</code> Log/Save](endpoints/POST_Log_Save.md)**
