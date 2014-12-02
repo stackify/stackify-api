@@ -19,16 +19,11 @@ http://www.stackify.com/sign-up/
 
 ## REST API
 
-- **[Best Practices](endpoints/BestPractices.md)**
+[REST API Best Practices](endpoints/BestPractices.md)
 
 - **[<code>POST</code> Metrics/IdentifyApp](endpoints/POST_Metrics_IdentifyApp.md)**
 - **[<code>POST</code> Log/Save](endpoints/POST_Log_Save.md)**
 
-## REST API Best Practices
 
-- **TODO**
 
-## FAQ
-
-- **TODO**
 
