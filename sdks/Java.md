@@ -10,7 +10,7 @@ Java Servlets
 - **[stackify-log-servlet](https://github.com/stackify/stackify-log-servlet)**: Add the Stackify servlet filter to capture web request details
 
 API
-- **[stackify-log-java](https://github.com/stackify/stackify-log-java)**: Log directly to Stackify
+- **[stackify-api-java](https://github.com/stackify/stackify-api-java)**: Log directly to Stackify
 
 ## Metrics
 

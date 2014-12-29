@@ -16,6 +16,7 @@ http://www.stackify.com/sign-up/
 
 - **[.NET](sdks/DotNet.md)**
 - **[Java](sdks/Java.md)**
+- **[PHP](sdks/PHP.md)**
 
 ## REST API
 
