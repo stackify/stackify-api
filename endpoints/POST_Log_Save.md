@@ -2,27 +2,157 @@
 
 Send log messages and exceptions to Stackify.
 
+## Example (Log Messages)
+
+```
+POST Log/Save
+```
+
+```
+Content-Type: application/json
+Accept: application/json
+X-Stackify-PV: V1
+X-Stackify-Key: [STACKIFY_API_KEY]
+```
+
+```javascript
+{
+  "Env": "Prod",
+  "ServerName": "PROD-RS-Debian-7",
+  "AppName": "stackify-agent",
+  "AppLoc": "/usr/local/stackify/stackify-agent",
+  "Logger": "stackify-log-log4j12-1.0.12",
+  "Platform": "java",
+  "Msgs": [
+    {
+      "Msg": "Example debug message",
+      "Th": "main",
+      "EpochMs": 1417535434194,
+      "Level": "debug",
+      "SrcMethod": "com.stackify.error.test.StackifyErrorAppenderTest.main",
+      "SrcLine": 57
+    },
+    {
+      "Msg": "Example info message",
+      "Th": "main",
+      "EpochMs": 1417535434215,
+      "Level": "info",
+      "SrcMethod": "com.stackify.error.test.SomeClass.someMethod",
+      "SrcLine": 19
+    }
+  ]
+}
+```
+
+Response:
+
+```javascript
+{
+  "success": true,
+  "took": 31
+}
+```
+
+## Example (Log Message and Exception)
+
+```
+POST Log/Save
+```
+
+```
+Content-Type: application/json
+Accept: application/json
+X-Stackify-PV: V1
+X-Stackify-Key: [STACKIFY_API_KEY]
+```
+
+```javascript
+{
+  "Env": "Prod",
+  "ServerName": "PROD-RS-Debian-7",
+  "AppName": "stackify-agent",
+  "AppLoc": "/usr/local/stackify/stackify-agent",
+  "Logger": "stackify-log-log4j12-1.0.12",
+  "Platform": "java",
+  "Msgs": [
+    {
+      "Msg": "Example error message with exception details",
+      "Ex": {
+        "EnvironmentDetail": {
+          "DeviceName": "eric-centos",
+          "AppLocation": "/usr/local/stackify/stackify-agent",
+          "ConfiguredAppName": "stackify-agent",
+          "ConfiguredEnvironmentName": "Prod"
+        },
+        "OccurredEpochMillis": 1417537904651,
+        "Error": {
+          "Message": "java.lang.NullPointerException: Something important was null that can't be null (Example error message with exception details)",
+          "ErrorType": "java.lang.RuntimeException",
+          "SourceMethod": "com.stackify.error.test.SomeSweetClass.doSomething",
+          "StackTrace": [
+            {
+              "CodeFileName": "SomeSweetClass.java",
+              "LineNum": 16,
+              "Method": "com.stackify.error.test.SomeSweetClass.doSomething"
+            },
+            {
+              "CodeFileName": "StackifyErrorAppenderTest.java",
+              "LineNum": 44,
+              "Method": "com.stackify.error.test.StackifyErrorAppenderTest.main"
+            }
+          ],
+          "InnerError": {
+            "Message": "Something important was null that can't be null",
+            "ErrorType": "java.lang.NullPointerException",
+            "SourceMethod": "com.stackify.error.test.SomeFragileClass.throwNullPointerException",
+            "StackTrace": [
+              {
+                "CodeFileName": "SomeFragileClass.java",
+                "LineNum": 15,
+                "Method": "com.stackify.error.test.SomeFragileClass.throwNullPointerException"
+              },
+              {
+                "CodeFileName": "SomeSweetClass.java",
+                "LineNum": 14,
+                "Method": "com.stackify.error.test.SomeSweetClass.doSomething"
+              },
+              {
+                "CodeFileName": "StackifyErrorAppenderTest.java",
+                "LineNum": 44,
+                "Method": "com.stackify.error.test.StackifyErrorAppenderTest.main"
+              }
+            ]
+          }
+        },
+        "ServerVariables": {
+          "java.runtime.name": "OpenJDK Runtime Environment",
+          "os.name": "Linux",
+          "user.timezone": "UTC",
+          "java.vendor": "Oracle Corporation"
+        }
+      },
+      "Th": "main",
+      "EpochMs": 1417537904651,
+      "Level": "error",
+      "SrcMethod": "com.stackify.error.test.StackifyErrorAppenderTest.main",
+      "SrcLine": 46
+    }
+  ]
+}
+```
+
+Response:
+
+```javascript
+{
+  "success": true,
+  "took": 641
+}
+```
+
+
+
 ## Request
-
-**CDID** (Integer)  
-*Optional.* The Stackify device identifier. This is from the [<code>POST</code> Metrics/IdentifyApp](POST_Metrics_IdentifyApp.md) response.  
-Example: 15
-
-**CDAppID** (Integer)  
-*Optional.* The Stackify device/application identifier. This is from the [<code>POST</code> Metrics/IdentifyApp](POST_Metrics_IdentifyApp.md) response.  
-Example: 751
-
-**AppNameID** (String)  
-The Stackify application identifier. This is from the [<code>POST</code> Metrics/IdentifyApp](POST_Metrics_IdentifyApp.md) response.  
-Example: "82c5d03b-4e0f-4288-89a0-b9524e3efe4c"
-
-**AppEnvID** (String)  
-The Stackify application/environment identifier. This is from the [<code>POST</code> Metrics/IdentifyApp](POST_Metrics_IdentifyApp.md) response.  
-Example: "f2308146-0101-4933-9716-daf99ea2066a"
-
-**EnvID** (Integer)  
-The Stackify environment identifier. This is from the [<code>POST</code> Metrics/IdentifyApp](POST_Metrics_IdentifyApp.md) response.  
-Example: 1
 
 **Env** (String)  
 The environment name.  
@@ -47,6 +177,8 @@ Example: "stackify-log-log4j12-1.0.12"
 **Platform** (String)  
 The logging language.  
 Example: "java"
+
+
 
 **Msgs** (List(Object))  
 Lists of log message objects.  
@@ -229,6 +361,28 @@ Lists of log message objects.
 > > > *Optional.* User name.  
 > > > Example: "test-user@stackify.com
 
+###Optional advanced fields
+
+**CDID** (Integer)  
+*Optional.* The Stackify device identifier. This is from the [<code>POST</code> Metrics/IdentifyApp](POST_Metrics_IdentifyApp.md) response.  
+Example: 15
+
+**CDAppID** (Integer)  
+*Optional.* The Stackify device/application identifier. This is from the [<code>POST</code> Metrics/IdentifyApp](POST_Metrics_IdentifyApp.md) response.  
+Example: 751
+
+**AppNameID** (String)  
+*Optional.* The Stackify application identifier. This is from the [<code>POST</code> Metrics/IdentifyApp](POST_Metrics_IdentifyApp.md) response.  
+Example: "82c5d03b-4e0f-4288-89a0-b9524e3efe4c"
+
+**AppEnvID** (String)  
+*Optional.* The Stackify application/environment identifier. This is from the [<code>POST</code> Metrics/IdentifyApp](POST_Metrics_IdentifyApp.md) response.  
+Example: "f2308146-0101-4933-9716-daf99ea2066a"
+
+**EnvID** (Integer)  
+*Optional.* The Stackify environment identifier. This is from the [<code>POST</code> Metrics/IdentifyApp](POST_Metrics_IdentifyApp.md) response.  
+Example: 1
+
 ## Response
 
 **success** (Boolean)  
@@ -238,162 +392,4 @@ Example: true
 **took** (Integer)  
 Elapsed time in milliseconds.  
 Example: 31
-
-## Example (Log Messages)
-
-```
-POST Log/Save
-```
-
-```
-Content-Type: application/json
-Accept: application/json
-X-Stackify-PV: V1
-X-Stackify-Key: [STACKIFY_API_KEY]
-```
-
-```javascript
-{
-  "CDID": 15,
-  "CDAppID": 751,
-  "AppNameID": "82c5d03b-4e0f-4288-89a0-b9524e3efe4c",
-  "AppEnvID": "f2308146-0101-4933-9716-daf99ea2066a",
-  "EnvID": 1,
-  "Env": "Prod",
-  "ServerName": "PROD-RS-Debian-7",
-  "AppName": "stackify-agent",
-  "AppLoc": "/usr/local/stackify/stackify-agent",
-  "Logger": "stackify-log-log4j12-1.0.12",
-  "Platform": "java",
-  "Msgs": [
-    {
-      "Msg": "Example debug message",
-      "Th": "main",
-      "EpochMs": 1417535434194,
-      "Level": "debug",
-      "SrcMethod": "com.stackify.error.test.StackifyErrorAppenderTest.main",
-      "SrcLine": 57
-    },
-    {
-      "Msg": "Example info message",
-      "Th": "main",
-      "EpochMs": 1417535434215,
-      "Level": "info",
-      "SrcMethod": "com.stackify.error.test.SomeClass.someMethod",
-      "SrcLine": 19
-    }
-  ]
-}
-```
-
-Response:
-
-```javascript
-{
-  "success": true,
-  "took": 31
-}
-```
-
-## Example (Log Message and Exception)
-
-```
-POST Log/Save
-```
-
-```
-Content-Type: application/json
-Accept: application/json
-X-Stackify-PV: V1
-X-Stackify-Key: [STACKIFY_API_KEY]
-```
-
-```javascript
-{
-  "CDID": 15,
-  "CDAppID": 751,
-  "AppNameID": "82c5d03b-4e0f-4288-89a0-b9524e3efe4c",
-  "AppEnvID": "f2308146-0101-4933-9716-daf99ea2066a",
-  "EnvID": 1,
-  "Env": "Prod",
-  "ServerName": "PROD-RS-Debian-7",
-  "AppName": "stackify-agent",
-  "AppLoc": "/usr/local/stackify/stackify-agent",
-  "Logger": "stackify-log-log4j12-1.0.12",
-  "Platform": "java",
-  "Msgs": [
-    {
-      "Msg": "Example error message with exception details",
-      "Ex": {
-        "EnvironmentDetail": {
-          "DeviceName": "eric-centos",
-          "AppLocation": "/usr/local/stackify/stackify-agent",
-          "ConfiguredAppName": "stackify-agent",
-          "ConfiguredEnvironmentName": "Prod"
-        },
-        "OccurredEpochMillis": 1417537904651,
-        "Error": {
-          "Message": "java.lang.NullPointerException: Something important was null that can't be null (Example error message with exception details)",
-          "ErrorType": "java.lang.RuntimeException",
-          "SourceMethod": "com.stackify.error.test.SomeSweetClass.doSomething",
-          "StackTrace": [
-            {
-              "CodeFileName": "SomeSweetClass.java",
-              "LineNum": 16,
-              "Method": "com.stackify.error.test.SomeSweetClass.doSomething"
-            },
-            {
-              "CodeFileName": "StackifyErrorAppenderTest.java",
-              "LineNum": 44,
-              "Method": "com.stackify.error.test.StackifyErrorAppenderTest.main"
-            }
-          ],
-          "InnerError": {
-            "Message": "Something important was null that can't be null",
-            "ErrorType": "java.lang.NullPointerException",
-            "SourceMethod": "com.stackify.error.test.SomeFragileClass.throwNullPointerException",
-            "StackTrace": [
-              {
-                "CodeFileName": "SomeFragileClass.java",
-                "LineNum": 15,
-                "Method": "com.stackify.error.test.SomeFragileClass.throwNullPointerException"
-              },
-              {
-                "CodeFileName": "SomeSweetClass.java",
-                "LineNum": 14,
-                "Method": "com.stackify.error.test.SomeSweetClass.doSomething"
-              },
-              {
-                "CodeFileName": "StackifyErrorAppenderTest.java",
-                "LineNum": 44,
-                "Method": "com.stackify.error.test.StackifyErrorAppenderTest.main"
-              }
-            ]
-          }
-        },
-        "ServerVariables": {
-          "java.runtime.name": "OpenJDK Runtime Environment",
-          "os.name": "Linux",
-          "user.timezone": "UTC",
-          "java.vendor": "Oracle Corporation"
-        }
-      },
-      "Th": "main",
-      "EpochMs": 1417537904651,
-      "Level": "error",
-      "SrcMethod": "com.stackify.error.test.StackifyErrorAppenderTest.main",
-      "SrcLine": 46
-    }
-  ]
-}
-```
-
-Response:
-
-```javascript
-{
-  "success": true,
-  "took": 641
-}
-```
 
