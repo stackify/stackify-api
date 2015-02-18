@@ -18,7 +18,7 @@ http://www.stackify.com/sign-up/
 - **[Java](sdks/Java.md)**
 - **[PHP](sdks/PHP.md)**
 - **[Ruby](sdks/Ruby.md)**
-- 
+
 ## REST API
 
 [REST API Best Practices](endpoints/BestPractices.md)
