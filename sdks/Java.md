@@ -4,6 +4,7 @@
 
 Logging Framework Plug-ins
 - **[stackify-log-log4j12](https://github.com/stackify/stackify-log-log4j12)**: Apache log4j 1.2 appender
+- **[stackify-log-log4j2](https://github.com/stackify/stackify-log-log4j2)**: Apache log4j 2.x appender
 - **[stackify-log-logback](https://github.com/stackify/stackify-log-logback)**: Logback appender
 
 Java Servlets
