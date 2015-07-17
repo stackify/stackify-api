@@ -24,9 +24,9 @@ http://www.stackify.com/sign-up/
 
 [REST API Best Practices](endpoints/BestPractices.md)
 
+Base URL: https://api.stackify.com/
+
 - **[<code>POST</code> Metrics/IdentifyApp](endpoints/POST_Metrics_IdentifyApp.md)**
 - **[<code>POST</code> Log/Save](endpoints/POST_Log_Save.md)**
-
-
 
 
