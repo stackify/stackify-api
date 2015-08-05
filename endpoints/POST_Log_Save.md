@@ -5,7 +5,7 @@ Send log messages and exceptions to Stackify.
 ## Example (Log Messages)
 
 ```
-POST Log/Save
+POST https://api.stackify.com/Log/Save
 ```
 
 ```
@@ -56,7 +56,7 @@ Response:
 ## Example (Log Message and Exception)
 
 ```
-POST Log/Save
+POST https://api.stackify.com/Log/Save
 ```
 
 ```
