@@ -8,6 +8,7 @@ Send log messages and exceptions to Stackify.
 POST https://api.stackify.com/Log/Save
 ```
 
+HTTP Headers:
 ```
 Content-Type: application/json
 Accept: application/json
@@ -15,6 +16,7 @@ X-Stackify-PV: V1
 X-Stackify-Key: [STACKIFY_API_KEY]
 ```
 
+POST Body:
 ```javascript
 {
   "Env": "Prod",
@@ -59,6 +61,7 @@ Response:
 POST https://api.stackify.com/Log/Save
 ```
 
+HTTP Headers:
 ```
 Content-Type: application/json
 Accept: application/json
@@ -66,6 +69,7 @@ X-Stackify-PV: V1
 X-Stackify-Key: [STACKIFY_API_KEY]
 ```
 
+POST Body:
 ```javascript
 {
   "Env": "Prod",
