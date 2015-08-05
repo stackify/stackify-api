@@ -63,7 +63,7 @@ Example: "PROD-RS-Debian-7"
 Request:
 
 ```
-POST Metrics/IdentifyApp
+POST https://api.stackify.com/Metrics/IdentifyApp
 ```
 
 ```
@@ -100,7 +100,7 @@ Response:
 Request:
 
 ```
-POST Metrics/IdentifyApp
+POST https://api.stackify.com/Metrics/IdentifyApp
 ```
 
 ```
