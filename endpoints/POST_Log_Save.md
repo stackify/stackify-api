@@ -29,7 +29,7 @@ POST Body:
     {
       "Msg": "Example debug message",
       "Th": "main",
-      "EpochMs": 1417535434194,
+      "EpochMs": [MILLISECONDS SINCE EPOCH (1 Jan 1970 00:00:00 UTC)],
       "Level": "debug",
       "SrcMethod": "com.stackify.error.test.StackifyErrorAppenderTest.main",
       "SrcLine": 57
@@ -37,7 +37,7 @@ POST Body:
     {
       "Msg": "Example info message",
       "Th": "main",
-      "EpochMs": 1417535434215,
+      "EpochMs": [MILLISECONDS SINCE EPOCH (1 Jan 1970 00:00:00 UTC)],
       "Level": "info",
       "SrcMethod": "com.stackify.error.test.SomeClass.someMethod",
       "SrcLine": 19
@@ -88,7 +88,7 @@ POST Body:
           "ConfiguredAppName": "stackify-agent",
           "ConfiguredEnvironmentName": "Prod"
         },
-        "OccurredEpochMillis": 1417537904651,
+        "OccurredEpochMillis": [MILLISECONDS SINCE EPOCH (1 Jan 1970 00:00:00 UTC)],
         "Error": {
           "Message": "java.lang.NullPointerException: Something important was null that can't be null (Example error message with exception details)",
           "ErrorType": "java.lang.RuntimeException",
@@ -136,7 +136,7 @@ POST Body:
         }
       },
       "Th": "main",
-      "EpochMs": 1417537904651,
+      "EpochMs": [MILLISECONDS SINCE EPOCH (1 Jan 1970 00:00:00 UTC)],
       "Level": "error",
       "SrcMethod": "com.stackify.error.test.StackifyErrorAppenderTest.main",
       "SrcLine": 46
