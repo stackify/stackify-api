@@ -66,6 +66,7 @@ Request:
 POST https://api.stackify.com/Metrics/IdentifyApp
 ```
 
+HTTP Headers:
 ```
 Content-Type: application/json
 Accept: application/json
@@ -73,6 +74,7 @@ X-Stackify-PV: V1
 X-Stackify-Key: [STACKIFY_API_KEY]
 ```
 
+POST Body:
 ```javascript
 {
   "DeviceName": "PROD-RS-Debian-7",
@@ -103,6 +105,7 @@ Request:
 POST https://api.stackify.com/Metrics/IdentifyApp
 ```
 
+HTTP Headers:
 ```
 Content-Type: application/json
 Accept: application/json
@@ -110,6 +113,7 @@ X-Stackify-PV: V1
 X-Stackify-Key: [STACKIFY_API_KEY]
 ```
 
+POST Body:
 ```javascript
 {
   "DeviceName": "Not-Monitored-RS-Debian-7",
