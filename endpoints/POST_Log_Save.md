@@ -154,7 +154,11 @@ Response:
 }
 ```
 
+## cURL Example
 
+```
+curl -X POST -i -H "Content-Type: application/json" -H "Accept: application/json" -H "X-Stackify-PV: V1" -H "X-Stackify-Key: [STACKIFY_API_KEY]" https://api.stackify.com/Log/Save -d '[JSON POST Body (see above examples)]' 
+```
 
 ## Request
 
@@ -181,8 +185,6 @@ Example: "stackify-log-log4j12-1.0.12"
 **Platform** (String)  
 The logging language.  
 Example: "java"
-
-
 
 **Msgs** (List(Object))  
 Lists of log message objects.  
