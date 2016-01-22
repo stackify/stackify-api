@@ -19,18 +19,18 @@ X-Stackify-Key: [STACKIFY_API_KEY]
 POST Body:
 ```javascript
 {
-  "Env": "Prod",
-  "ServerName": "PROD-RS-Debian-7",
-  "AppName": "stackify-agent",
-  "AppLoc": "/usr/local/stackify/stackify-agent",
-  "Logger": "stackify-log-log4j12-1.0.12",
+  "Env": "Prod", /* REQUIRED!!! */
+  "ServerName": "PROD-RS-Debian-7", /* REQUIRED!!! */
+  "AppName": "stackify-agent", /* REQUIRED!!! */
+  "AppLoc": "/usr/local/stackify/stackify-agent", 
+  "Logger": "stackify-log-log4j12-1.0.12", /* REQUIRED!!! */
   "Platform": "java",
   "Msgs": [
     {
-      "Msg": "Example debug message",
+      "Msg": "Example debug message", /* REQUIRED!!! */
       "Th": "main",
-      "EpochMs": [MILLISECONDS SINCE EPOCH (1 Jan 1970 00:00:00 UTC)],
-      "Level": "debug",
+      "EpochMs": [MILLISECONDS SINCE EPOCH (i.e. 1 Jan 1970 00:00:00 UTC)], /* REQUIRED!!! */
+      "Level": "debug", /* REQUIRED!!! */
       "SrcMethod": "com.stackify.error.test.StackifyErrorAppenderTest.main",
       "SrcLine": 57
     },
@@ -163,15 +163,15 @@ curl -X POST -i -H "Content-Type: application/json" -H "Accept: application/json
 ## Request
 
 **Env** (String)  
-The environment name.  
+*REQUIRED* The environment name.  
 Example: "Prod"
 
 **ServerName** (String)  
-The name of the device.  
+*REQUIRED* The name of the device.  
 Example: "PROD-RS-Debian-7"
 
 **AppName** (String)  
-The name of the application.  
+*REQUIRED* The name of the application.  
 Example: "stackify-agent"
 
 **AppLocation** (String)  
@@ -179,7 +179,7 @@ Example: "stackify-agent"
 Example: "/usr/local/stackify/stackify-agent"
 
 **Logger** (String)  
-The name and version of the logging project generating this request.  
+*REQUIRED* The name and version of the logging project generating this request.  
 Example: "stackify-log-log4j12-1.0.12"
 
 **Platform** (String)  
@@ -190,15 +190,15 @@ Example: "java"
 Lists of log message objects.  
 
 > **Msgs[\*]/Msg** (String)  
-> The log message.  
+> *REQUIRED* The log message.  
 > Example: "Example debug message"
 
 > **Msgs[\*]/Level** (String)  
-> The log level.  
+> *REQUIRED* The log level.  
 > Example: "debug"
 
 > **Msgs[\*]/EpochMs** (Long)  
-> Unix/POSIX/Epoch time with millisecond precision.  
+> *REQUIRED* Unix/POSIX/Epoch time with millisecond precision.  
 > Example: 1417535434194
 
 > **Msgs[\*]/Th** (String)  
